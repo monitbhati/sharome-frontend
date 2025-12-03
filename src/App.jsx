@@ -28,7 +28,8 @@ function App() {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post('http://localhost:8080/api/orders/submit', formData);
+      const BACKEND_URL ="https://sharome-api.onrender.com";
+      await axios.post('https://sharome-api.onrender.com/api/orders/submit', formData);
       setSubmitted(true);
       window.scrollTo(0, 0); 
     } catch (error) { alert("System Error."); } finally { setLoading(false); }
