@@ -1,0 +1,290 @@
+/* THEME: SHAROMÉ EDITORIAL (Mobile Optimized) */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap');
+
+:root {
+  --primary: #2C3E50;      /* Deep Charcoal */
+  --accent: #A5A58D;       /* Sage Green */
+  --bg-color: #FDFBF7;     /* Warm Off-White */
+  --text-color: #1a1a1a;
+  
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Jost', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  font-family: var(--font-body);
+  color: var(--text-color);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased; /* Crisp text on iPhone */
+}
+
+/* --- 1. NAVBAR --- */
+.navbar {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: rgba(253, 251, 247, 0.95);
+  z-index: 100;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+.brand-logo {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--primary);
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.beta-tag {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: 1px solid var(--primary);
+  padding: 6px 15px;
+  border-radius: 50px;
+  font-weight: 500;
+}
+
+/* --- 2. HERO SECTION (Responsive) --- */
+.hero {
+  min-height: 85vh; /* Fits mobile screens better */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Desktop: Image is small and centered */
+.hero-img-container {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 70%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+  transition: scale 10s ease; /* Slow zoom effect */
+}
+
+/* Text Box */
+.hero-content {
+  z-index: 1;
+  text-align: center;
+  background: rgba(253, 251, 247, 0.85);
+  padding: 60px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.5);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  max-width: 500px;
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: 4.5rem;
+  font-weight: 300;
+  margin: 0;
+  line-height: 0.9;
+  color: var(--primary);
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-top: 20px;
+  letter-spacing: 1px;
+  font-style: italic;
+  color: #555;
+}
+
+/* --- 3. MANIFESTO --- */
+.manifesto-section {
+  padding: 80px 20px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.manifesto-text {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  line-height: 1.4;
+  color: var(--primary);
+}
+.highlight {
+  color: var(--accent);
+  font-style: italic;
+}
+
+/* --- 4. FORM SECTION --- */
+.form-section {
+  padding: 80px 20px;
+  background: white;
+  border-top: 1px solid #eee;
+}
+
+.form-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-title {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--primary);
+}
+
+/* Inputs */
+.input-row { 
+  display: flex; 
+  gap: 30px; 
+  margin-bottom: 30px; 
+}
+.input-group { 
+  flex: 1; 
+  margin-bottom: 30px; 
+  position: relative; 
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: transparent;
+  color: var(--primary);
+  border-radius: 0; /* Important for iOS to remove rounded corners */
+  -webkit-appearance: none;
+  appearance: none; /* Removes default iOS styling */
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-bottom: 1px solid var(--primary);
+}
+
+label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* Upload Button */
+.upload-trigger {
+  border: 1px solid #eee;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  background: #fafafa;
+  transition: all 0.3s;
+}
+.active-upload {
+    border-color: var(--primary);
+    background: #f0f4f8;
+}
+
+/* Button */
+.submit-btn {
+  width: 100%;
+  padding: 20px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s;
+}
+.submit-btn:hover { background: #1a252f; }
+.submit-btn:disabled { background: #ccc; }
+
+/* --- MOBILE SPECIFIC FIXES --- */
+@media (max-width: 768px) {
+  
+  /* Navbar: Smaller padding */
+  .navbar { padding: 20px; }
+  .brand-logo { font-size: 1.5rem; }
+  
+  /* Hero: Make image full size behind text */
+  .hero-img-container {
+    width: 100%;
+    height: 100%; /* Full screen background on mobile */
+    top: 0; left: 0;
+    transform: none;
+  }
+  
+  /* Hero Text: Smaller and floating at bottom */
+  .hero-content {
+    padding: 30px;
+    width: 85%;
+    background: rgba(253, 251, 247, 0.9);
+    margin-top: 40vh; /* Push text down */
+  }
+  .hero h1 { font-size: 3rem; } /* Smaller font for mobile */
+  
+  /* Text Sections */
+  .manifesto-text { font-size: 1.5rem; }
+  .form-title { font-size: 2.2rem; }
+  
+  /* Form: Stack inputs vertically */
+  .input-row { flex-direction: column; gap: 0; margin-bottom: 0; }
+  .input-group { margin-bottom: 25px; }
+  
+  .form-section { padding: 60px 20px; }
+}
+/* --- 5. FOOTER (The Disclaimer) --- */
+.footer {
+  padding: 60px 20px;
+  text-align: center;
+  background: var(--bg-color); /* Matches the main background */
+  border-top: 1px solid rgba(0,0,0,0.05);
+  margin-top: 0;
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer p {
+  font-size: 0.85rem;
+  color: #888;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.footer strong {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.copyright {
+  margin-top: 30px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #aaa;
+}
