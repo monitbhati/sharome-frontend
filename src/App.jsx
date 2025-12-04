@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
-import heroImageImage from './assets/heroImage.jpeg'
+import heroImage3Image from './assets/heroImage3.jpeg'
 
 function App() {
   useEffect(() => { document.title = "Sharomé | Modern Ethnic"; }, []);
@@ -47,7 +47,7 @@ function App() {
       {/* 2. HERO SECTION (Cleaned Layout) */}
       <header className="hero">
         <div className="hero-img-container">
-            <img src={heroImageImage} alt="Sharome Model" />
+            <img src={heroImage3Image} alt="Sharome Model" />
         </div>
         <div className="hero-content">
           <h1>Modern.<br/>Bespoke.<br/>Yours.</h1>
