@@ -189,7 +189,7 @@ function App() {
 
       {/* 6. FLOATING WHATSAPP BUTTON (NEW ADDITION) */}
       <a 
-        href="https://wa.me/919876543210?text=Hi%20Sharome,%20I%20want%20to%20know%20more%20about%20the%20beta%20program." 
+        href="https://wa.me/918816952235?text=Hi%20Sharome,%20I%20want%20to%20know%20more%20about%20the%20beta%20program." 
         className="whatsapp-float" 
         target="_blank" 
         rel="noopener noreferrer"
