@@ -54,49 +54,56 @@ body {
 }
 
 /* --- 2. HERO SECTION (Responsive) --- */
+/* --- 2. HERO SECTION (Split Layout - Image Fully Visible) --- */
 .hero {
-  min-height: 85vh; /* Fits mobile screens better */
+  min-height: 100vh; /* Full screen height */
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row; /* Side by side on Desktop */
+  align-items: stretch; /* Stretch both sides to full height */
+  padding: 0; /* Remove padding so image touches edges */
   position: relative;
   overflow: hidden;
 }
 
-/* Desktop: Image is small and centered */
+/* LEFT SIDE: The Image */
 .hero-img-container {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40%;
-  height: 70%;
-  z-index: 0;
-  overflow: hidden;
+  width: 50%; /* Takes up half the screen */
+  position: relative;
+  top: 0; left: 0;
+  height: auto;
+  transform: none; /* Remove centering transform */
+  z-index: 1;
 }
 
 .hero-img-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  opacity: 0.9;
-  transition: scale 10s ease; /* Slow zoom effect */
+  object-fit: cover; /* Ensures image fills the half-screen without stretching */
+  display: block;
 }
 
-/* Text Box */
+/* RIGHT SIDE: The Text */
 .hero-content {
-  z-index: 1;
-  text-align: center;
-  background: rgba(253, 251, 247, 0.85);
-  padding: 60px;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.5);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  max-width: 500px;
+  width: 50%; /* Takes up other half */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align text to left */
+  padding: 80px; /* Breathing room */
+  background: var(--bg-color); /* Solid background color */
+  text-align: left;
+  z-index: 2;
+  
+  /* Remove old box styles */
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  margin-top: 0;
 }
 
 .hero h1 {
   font-family: var(--font-heading);
-  font-size: 4.5rem;
+  font-size: 5rem;
   font-weight: 300;
   margin: 0;
   line-height: 0.9;
@@ -104,11 +111,35 @@ body {
 }
 
 .hero p {
-  font-size: 1.1rem;
-  margin-top: 20px;
+  font-size: 1.2rem;
+  margin-top: 30px;
   letter-spacing: 1px;
   font-style: italic;
   color: #555;
+  max-width: 400px;
+}
+
+/* --- MOBILE ADJUSTMENTS (Stack them) --- */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column; /* Stack vertically on phone */
+    min-height: auto;
+  }
+
+  .hero-img-container {
+    width: 100%; /* Full width on phone */
+    height: 60vh; /* Takes up 60% of phone screen height */
+  }
+
+  .hero-content {
+    width: 100%;
+    padding: 40px 20px; /* Less padding on phone */
+    align-items: center; /* Center text on phone */
+    text-align: center;
+    background: white;
+  }
+
+  .hero h1 { font-size: 3rem; }
 }
 
 /* --- 3. MANIFESTO --- */
