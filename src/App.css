@@ -288,3 +288,96 @@ label {
   letter-spacing: 2px;
   color: #aaa;
 }
+/* --- ANIMATED WHATSAPP BUTTON --- */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  animation: pulse-green 2s infinite;
+}
+
+.whatsapp-float:hover {
+  background-color: #128C7E;
+  transform: scale(1.1);
+}
+
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* --- PARALLAX HERO FIX (Luxury Depth) --- */
+.hero-img-container {
+  /* ... existing styles ... */
+  /* Add/Change this to create the parallax effect */
+  background-attachment: fixed; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Ensure the image tag inside is hidden or removed if using background-image */
+}
+
+/* If you prefer keeping the <img> tag, use this for the container: */
+.hero {
+  /* ... existing styles ... */
+  overflow: hidden; /* Essential for parallax */
+}
+
+.hero-img-container img {
+  /* ... existing styles ... */
+  /* This creates a slow-scroll effect if you use JS, but for CSS only: */
+  transform: scale(1.1); /* Slight zoom for drama */
+  transition: transform 10s ease; /* Slow zoom on load */
+}
+/* --- DESKTOP CENTERING FIX --- */
+
+/* 1. Force the main app to center everything vertically */
+#root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 2. Constrain the width of the main sections */
+/* This keeps the Navbar, Hero, and Form from stretching too wide */
+.navbar, 
+.hero, 
+.manifesto-section, 
+.form-section, 
+.footer-content {
+  width: 100%;
+  max-width: 1200px; /* Stops it from getting too wide */
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box; /* Ensures padding doesn't break the layout */
+}
+
+/* 3. Ensure the Navbar contents stay inside the limit */
+.navbar {
+  /* We keep the background color in the parent, but constrain width here */
+  /* If you want the white bar to stretch but logo to center, we need a wrapper. */
+  /* For now, this will center the whole bar. */
+  border-bottom: 1px solid #eee; /* Clean separator */
+}
+
+/* 4. Fix the Form Wrapper specifically */
+.form-wrapper {
+  max-width: 600px; /* Keep form slim */
+  margin: 0 auto;
+}
