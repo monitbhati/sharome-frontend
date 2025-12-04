@@ -412,3 +412,46 @@ label {
   max-width: 600px; /* Keep form slim */
   margin: 0 auto;
 }
+/* --- BRANDING OVERLAYS --- */
+
+/* 1. The Brand Filter (Option 2) */
+/* This puts a subtle warm tint over the image to make it look "Editorial" */
+.brand-filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(44, 62, 80, 0.1), rgba(165, 165, 141, 0.2)); 
+  z-index: 1; /* Sits on top of image */
+  pointer-events: none; /* Lets you click through it */
+}
+
+/* 2. The Vogue Watermark (Option 1) */
+/* A vertical stamp on the side like a magazine spine */
+.watermark {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-heading);
+  font-size: 4rem; /* Big transparent text */
+  font-weight: 700;
+  opacity: 0.3; /* Subtle see-through */
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  writing-mode: vertical-rl; /* Makes text vertical */
+  transform: rotate(180deg); /* Flips it correct way */
+  pointer-events: none;
+}
+
+/* Mobile Adjustment for Watermark */
+@media (max-width: 768px) {
+  .watermark {
+    font-size: 2.5rem;
+    right: 10px;
+    bottom: 10px;
+    opacity: 0.2;
+  }
+}

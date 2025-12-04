@@ -48,6 +48,8 @@ function App() {
       <header className="hero">
         <div className="hero-img-container">
             <img src={heroImage3Image} alt="Sharome Model" />
+            <div className="brand-filter"></div>
+            <div className="watermark">Sharomé</div>
         </div>
         <div className="hero-content">
           <h1>Modern.<br/>Bespoke.<br/>Yours.</h1>
