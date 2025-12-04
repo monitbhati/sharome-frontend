@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
-import heroImage3Image from './assets/heroImage3.jpeg'
+import heroImageImage from './assets/heroImage.jpeg'
 
 function App() {
   useEffect(() => { document.title = "Sharomé | Modern Ethnic"; }, []);
@@ -44,22 +44,12 @@ function App() {
         <div className="beta-tag">Private Beta</div>
       </nav>
 
-      {/* 2. HERO SECTION (With Parallax Effect) */}
-      <header className="hero" style={{ overflow: 'hidden' }}>
-        <div className="hero-img-container" style={{
-            position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0
-        }}>
-            <img 
-              src={heroImage3Image} 
-              alt="Sharome Model" 
-              style={{
-                width: '100%', height: '100%', objectFit: 'cover', 
-                transform: 'scale(1.1)', // Slight zoom for effect
-                transition: 'transform 10s ease'
-              }} 
-            />
+      {/* 2. HERO SECTION (Cleaned Layout) */}
+      <header className="hero">
+        <div className="hero-img-container">
+            <img src={heroImageImage} alt="Sharome Model" />
         </div>
-        <div className="hero-content" style={{ zIndex: 1, position: 'relative' }}>
+        <div className="hero-content">
           <h1>Modern.<br/>Bespoke.<br/>Yours.</h1>
           <p>The new language of Indian Ethnic Wear.</p>
         </div>
@@ -73,21 +63,19 @@ function App() {
         </p>
       </section>
 
-      {/* 3.5. REVIEWS (Social Proof - NEW SECTION) */}
+      {/* 3.5. REVIEWS */}
       <section style={{padding: '60px 20px', background: '#F5F5F5', textAlign: 'center'}}>
         <h3 style={{fontFamily: 'Cormorant Garamond', fontSize: '2rem', marginBottom: '40px', color: '#2C3E50'}}>Early Impressions</h3>
         <div style={{display: 'flex', gap: '20px', overflowX: 'auto', padding: '10px', justifyContent: 'center', flexWrap: 'wrap'}}>
           
-          {/* Review Card 1 */}
           <div style={{background: 'white', padding: '30px', maxWidth: '300px', boxShadow: '0 5px 15px rgba(0,0,0,0.05)', borderRadius: '8px'}}>
             <p style={{fontStyle: 'italic', color: '#555'}}>"Finally, a brand that understands modern Indian aesthetics. The fit was perfect."</p>
-            <p style={{marginTop: '20px', fontWeight: 'bold', color: '#2C3E50'}}>- Ananya S., sec-46</p>
+            <p style={{marginTop: '20px', fontWeight: 'bold', color: '#2C3E50'}}>- Ananya S., sec-15</p>
           </div>
 
-          {/* Review Card 2 */}
           <div style={{background: 'white', padding: '30px', maxWidth: '300px', boxShadow: '0 5px 15px rgba(0,0,0,0.05)', borderRadius: '8px'}}>
             <p style={{fontStyle: 'italic', color: '#555'}}>"The fabric quality for the beta test was surprising. Felt very premium."</p>
-            <p style={{marginTop: '20px', fontWeight: 'bold', color: '#2C3E50'}}>- Meera K., sec-15</p>
+            <p style={{marginTop: '20px', fontWeight: 'bold', color: '#2C3E50'}}>- Meera K., sec-31</p>
           </div>
 
         </div>
@@ -108,7 +96,6 @@ function App() {
             <form onSubmit={handleSubmit}>
               <h2 className="form-title">The Application</h2>
 
-              {/* Personal */}
               <div className="input-row">
                 <div className="input-group">
                   <label>Full Name</label>
@@ -120,7 +107,6 @@ function App() {
                 </div>
               </div>
 
-              {/* Address */}
               <div className="input-row">
                 <div className="input-group">
                    <label>City</label>
@@ -136,7 +122,6 @@ function App() {
                   <input name="streetArea" placeholder="House No, Street, Landmark" required onChange={handleChange} />
               </div>
 
-              {/* Outfit */}
               <div className="input-group">
                 <label>Desired Outfit</label>
                 <select name="outfitType" onChange={handleChange} style={{background: 'transparent'}}>
@@ -171,36 +156,22 @@ function App() {
         </div>
       </section>
 
-      {/* 5. FOOTER DISCLAIMER */}
+      {/* 5. FOOTER */}
       <footer className="footer">
         <div className="footer-content">
-          <p>
-            <strong>Sharomé is currently in its Initial Launch Phase.</strong>
-          </p>
-          <p>
-            Please treat this site as an invitation request portal. We are currently inviting people to test our bespoke service. 
-            So if you care to refer us, please mail us first. Your feedback is invaluable in shaping our future collections.
-          </p>
-          <div className="copyright">
-            © 2025 Sharomé Clothing. All Rights Reserved.
-          </div>
+          <p><strong>Sharomé is currently in its Initial Launch Phase.</strong></p>
+          <p>Please treat this site as an invitation request portal. We are currently inviting people to test our bespoke service. So if you care to refer us, please mail us first. Your feedback is invaluable.</p>
+          <div className="copyright">© 2025 Sharomé Clothing. All Rights Reserved.</div>
         </div>
       </footer>
 
-      {/* 6. FLOATING WHATSAPP BUTTON (NEW ADDITION) */}
+      {/* 6. WHATSAPP BUTTON */}
       <a 
         href="https://wa.me/918816952235?text=Hi%20Sharome,%20I%20want%20to%20know%20more%20about%20the%20beta%20program." 
         className="whatsapp-float" 
         target="_blank" 
         rel="noopener noreferrer"
-        style={{
-          position: 'fixed', width: '60px', height: '60px', bottom: '30px', right: '30px',
-          backgroundColor: '#25d366', color: '#FFF', borderRadius: '50px', textAlign: 'center',
-          fontSize: '30px', boxShadow: '2px 2px 3px #999', zIndex: 1000, display: 'flex',
-          alignItems: 'center', justifyContent: 'center', textDecoration: 'none'
-        }}
       >
-        {/* Simple SVG WhatsApp Icon */}
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
           <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/>
         </svg>
