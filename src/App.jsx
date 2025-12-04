@@ -37,7 +37,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="app-container" style={{width: '100%'}}>
       {/* 1. NAVBAR */}
       <nav className="navbar">
         <div className="brand-logo">Sharomé</div>
