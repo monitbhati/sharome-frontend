@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
-import heroImage1Image from './assets/heroImage1.jpeg'
+import heroImage2Image from './assets/heroImage2.jpeg'
 
 function App() {
   useEffect(() => { document.title = "Sharomé | Modern Ethnic"; }, []);
@@ -50,7 +50,7 @@ function App() {
             position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0
         }}>
             <img 
-              src={heroImage1Image} 
+              src={heroImage2Image} 
               alt="Sharome Model" 
               style={{
                 width: '100%', height: '100%', objectFit: 'cover', 
