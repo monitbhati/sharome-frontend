@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
-import heroImageImage from './assets/heroImage.jpeg'
+import heroImage1Image from './assets/heroImage1.jpeg'
 
 function App() {
   useEffect(() => { document.title = "Sharomé | Modern Ethnic"; }, []);
@@ -50,7 +50,7 @@ function App() {
             position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0
         }}>
             <img 
-              src={heroImageImage} 
+              src={heroImage1Image} 
               alt="Sharome Model" 
               style={{
                 width: '100%', height: '100%', objectFit: 'cover', 
@@ -81,13 +81,13 @@ function App() {
           {/* Review Card 1 */}
           <div style={{background: 'white', padding: '30px', maxWidth: '300px', boxShadow: '0 5px 15px rgba(0,0,0,0.05)', borderRadius: '8px'}}>
             <p style={{fontStyle: 'italic', color: '#555'}}>"Finally, a brand that understands modern Indian aesthetics. The fit was perfect."</p>
-            <p style={{marginTop: '20px', fontWeight: 'bold', color: '#2C3E50'}}>- Ananya S., Delhi</p>
+            <p style={{marginTop: '20px', fontWeight: 'bold', color: '#2C3E50'}}>- Ananya S., sec-46</p>
           </div>
 
           {/* Review Card 2 */}
           <div style={{background: 'white', padding: '30px', maxWidth: '300px', boxShadow: '0 5px 15px rgba(0,0,0,0.05)', borderRadius: '8px'}}>
             <p style={{fontStyle: 'italic', color: '#555'}}>"The fabric quality for the beta test was surprising. Felt very premium."</p>
-            <p style={{marginTop: '20px', fontWeight: 'bold', color: '#2C3E50'}}>- Meera K., Mumbai</p>
+            <p style={{marginTop: '20px', fontWeight: 'bold', color: '#2C3E50'}}>- Meera K., sec-15</p>
           </div>
 
         </div>
