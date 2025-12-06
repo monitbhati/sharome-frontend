@@ -24,7 +24,7 @@ function App() {
   // --- LOCK SCREEN LOGIC ---
   const handleUnlock = (e) => {
     e.preventDefault();
-    if (inviteCode.toUpperCase() === 'SHAROME2025') {
+    if (inviteCode.toUpperCase() === 'SHAROME2026') {
       setIsVerified(true);
     } else {
       setErrorMsg("Invalid Invite Code.");
