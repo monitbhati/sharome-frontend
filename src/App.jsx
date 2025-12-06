@@ -1,21 +1,22 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
-import heroImageImage from './assets/heroImage.jpeg'
+import heroImage3Image from './assets/heroImage3.jpeg'
 
 function App() {
   useEffect(() => { document.title = "Sharomé | Private Access"; }, []);
 
-  // --- STATE FOR LOCK SCREEN ---
+  // --- LOCK SCREEN STATE ---
   const [inviteCode, setInviteCode] = useState('');
   const [isVerified, setIsVerified] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  // --- EXISTING STATE ---
+  // --- FORM STATE ---
   const [formData, setFormData] = useState({
     customerName: '', phoneNumber: '', 
-    houseNumber: '', streetArea: '', city: 'Gurugram', pincode: '',
-    outfitType: 'Salwar Suit', userNotes: '', referenceImageUrl: '', socialLink: '' // Added socialLink
+    houseNumber: '', streetArea: '', landmark: '', // Added Landmark
+    city: 'Gurugram', state: 'Haryana', pincode: '', // Added State
+    outfitType: 'Salwar Suit', userNotes: '', referenceImageUrl: '', socialLink: ''
   })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -23,15 +24,13 @@ function App() {
   // --- LOCK SCREEN LOGIC ---
   const handleUnlock = (e) => {
     e.preventDefault();
-    // THE SECRET PASSWORD (Change this if you want)
     if (inviteCode.toUpperCase() === 'SHAROME2025') {
       setIsVerified(true);
     } else {
-      setErrorMsg("Invalid Invite Code. Please request access via Instagram.");
+      setErrorMsg("Invalid Invite Code.");
     }
   }
 
-  // ... (Rest of your existing handlers) ...
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value })
   
   const handleImageUpload = (e) => {
@@ -47,14 +46,20 @@ function App() {
     e.preventDefault();
     setLoading(true);
     try {
+      // SMART LOGIC: Combine City + State so Backend accepts it easily
+      const payload = {
+        ...formData,
+        city: `${formData.city}, ${formData.state}` 
+      };
+
       const BACKEND_URL ="https://sharome-api.onrender.com";
-      await axios.post(`${BACKEND_URL}/api/orders/submit`, formData);
+      await axios.post(`${BACKEND_URL}/api/orders/submit`, payload);
       setSubmitted(true);
       window.scrollTo(0, 0); 
-    } catch (error) { alert("System Error."); } finally { setLoading(false); }
+    } catch (error) { alert("System Error. Please try again."); } finally { setLoading(false); }
   }
 
-  // --- IF NOT VERIFIED, SHOW LOCK SCREEN ---
+  // --- 1. LOCK SCREEN VIEW ---
   if (!isVerified) {
     return (
       <div style={{
@@ -66,45 +71,29 @@ function App() {
         
         <form onSubmit={handleUnlock} style={{textAlign: 'center', width: '100%', maxWidth: '300px'}}>
           <input 
-            type="text" 
-            placeholder="ENTER INVITE CODE" 
-            value={inviteCode}
-            onChange={(e) => setInviteCode(e.target.value)}
-            style={{
-              textAlign: 'center', letterSpacing: '3px', borderBottom: '1px solid #2C3E50', 
-              marginBottom: '20px', textTransform: 'uppercase'
-            }}
+            type="text" placeholder="ENTER INVITE CODE" 
+            value={inviteCode} onChange={(e) => setInviteCode(e.target.value)}
+            style={{textAlign: 'center', letterSpacing: '3px', borderBottom: '1px solid #2C3E50', marginBottom: '20px', textTransform: 'uppercase'}}
           />
           {errorMsg && <p style={{color: 'red', fontSize: '12px', marginBottom: '20px'}}>{errorMsg}</p>}
-          
-          <button type="submit" style={{
-            background: '#2C3E50', color: 'white', padding: '15px 30px', 
-            border: 'none', letterSpacing: '2px', fontSize: '10px', cursor: 'pointer', textTransform: 'uppercase'
-          }}>
-            Unlock Site
-          </button>
+          <button type="submit" style={{background: '#2C3E50', color: 'white', padding: '15px 30px', border: 'none', letterSpacing: '2px', fontSize: '10px', cursor: 'pointer', textTransform: 'uppercase'}}>Unlock Site</button>
         </form>
-        
-        <p style={{marginTop: '50px', fontSize: '11px', color: '#aaa'}}>
-          Don't have a code? DM us on Instagram @SharomeOfficial
-        </p>
       </div>
     )
   }
 
-  // --- MAIN WEBSITE (Only shows if verified) ---
+  // --- 2. MAIN WEBSITE VIEW ---
   return (
     <div className="app-container" style={{width: '100%'}}>
-      {/* 1. NAVBAR */}
+      
       <nav className="navbar">
         <div className="brand-logo">Sharomé</div>
         <div className="beta-tag">Private Beta</div>
       </nav>
 
-      {/* 2. HERO SECTION */}
       <header className="hero">
         <div className="hero-img-container">
-            <img src={heroImageImage} alt="Sharome Model" />
+            <img src={heroImage3Image} alt="Sharome Model" />
             <div className="brand-filter"></div>
             <div className="watermark">Sharomé</div>
         </div>
@@ -114,7 +103,6 @@ function App() {
         </div>
       </header>
 
-      {/* 3. MANIFESTO */}
       <section className="manifesto-section">
         <p className="manifesto-text">
           "Fashion shouldn't just fit your body, it should fit your <span className="highlight">soul</span>. 
@@ -122,9 +110,9 @@ function App() {
         </p>
       </section>
 
-      {/* 4. FORM SECTION */}
       <section className="form-section">
         <div className="form-wrapper">
+          
           {submitted ? (
              <div style={{textAlign: 'center', padding: '40px 20px', minHeight: '50vh', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
                 <h2 style={{fontFamily: 'Cormorant Garamond', fontSize: '2.5rem', color: '#2C3E50', lineHeight: '1.2'}}>Application Received.</h2>
@@ -144,38 +132,62 @@ function App() {
                 </div>
                 <div className="input-group">
                   <label>WhatsApp Number</label>
-                  <input name="phoneNumber" type="tel" required onChange={handleChange} />
+                  <input name="phoneNumber" type="tel" required onChange={handleChange} placeholder="+91" />
                 </div>
               </div>
 
-              {/* Address */}
+              {/* FULL SHIPPING ADDRESS */}
+              <h3 style={{fontSize: '13px', textTransform: 'uppercase', color: '#2C3E50', marginBottom: '20px', letterSpacing: '2px', borderBottom: '1px solid #eee', paddingBottom: '10px', marginTop: '40px'}}>Shipping Details</h3>
+              
+              <div className="input-row">
+                <div className="input-group">
+                  <label>House / Flat No.</label>
+                  <input name="houseNumber" required onChange={handleChange} placeholder="e.g. Flat 302" />
+                </div>
+                <div className="input-group">
+                  <label>Pincode</label>
+                  <input name="pincode" required onChange={handleChange} />
+                </div>
+              </div>
+
+              <div className="input-group">
+                  <label>Street / Society / Colony</label>
+                  <input name="streetArea" required onChange={handleChange} placeholder="e.g. DLF Phase 3, Block U" />
+              </div>
+
+              <div className="input-group">
+                  <label>Landmark (Near...)</label>
+                  <input name="landmark" onChange={handleChange} placeholder="e.g. Near Community Center" />
+              </div>
+
               <div className="input-row">
                 <div className="input-group">
                    <label>City</label>
-                   <input name="city" defaultValue="Gurugram" required onChange={handleChange} />
+                   <input name="city" required onChange={handleChange} />
                 </div>
                 <div className="input-group">
-                   <label>Pincode</label>
-                   <input name="pincode" required onChange={handleChange} />
+                   <label>State</label>
+                   <input name="state" required onChange={handleChange} />
                 </div>
               </div>
-              
-              {/* NEW FEATURE: PASTE LINK */}
+
+              {/* Outfit Details */}
+              <h3 style={{fontSize: '13px', textTransform: 'uppercase', color: '#2C3E50', marginBottom: '20px', letterSpacing: '2px', borderBottom: '1px solid #eee', paddingBottom: '10px', marginTop: '40px'}}>Design Request</h3>
+
+              <div className="input-group">
+                <label>Category</label>
+                <select name="outfitType" onChange={handleChange} style={{background: 'transparent'}}>
+                  <option value="Salwar Suit">Salwar Kameez</option>
+                  <option value="Kurti">Designer Kurti</option>
+                  <option value="Blouse">Saree Blouse</option>
+                  <option value="Plazo Set">Plazo Set</option>
+                  <option value="Gown">Ethnic Gown</option>
+                </select>
+              </div>
+
               <div className="input-group">
                   <label>Instagram / Pinterest Link (Optional)</label>
                   <input name="socialLink" placeholder="Paste link to the dress..." onChange={handleChange} />
-              </div>
-
-              {/* Outfit */}
-              <div className="input-group">
-                <label>Desired Outfit</label>
-                <select name="outfitType" onChange={handleChange} style={{background: 'transparent'}}>
-                  <option value="Salwar Suit">Contemporary Salwar Suit</option>
-                  <option value="Co-ord Set">Ethnic Co-ord Set</option>
-                  <option value="Saree">Concept Saree</option>
-                  <option value="Lehenga">Minimalist Lehenga</option>
-                  <option value="Blouse">Designer Blouse</option>
-                </select>
               </div>
 
               <div className="input-group">
@@ -189,12 +201,12 @@ function App() {
               </div>
 
               <div className="input-group">
-                <label>Notes</label>
-                <textarea name="userNotes" rows="2" placeholder="Tell us about your vision..." onChange={handleChange}></textarea>
+                <label>Styling Notes</label>
+                <textarea name="userNotes" rows="4" placeholder="Describe the fit, fabric preference, or specific details..." onChange={handleChange}></textarea>
               </div>
 
               <button type="submit" className="submit-btn" disabled={loading}>
-                {loading ? 'Processing...' : 'Submit Application'}
+                {loading ? 'Submitting...' : 'Complete Application'}
               </button>
             </form>
           )}
@@ -211,15 +223,8 @@ function App() {
       </footer>
       
       {/* WHATSAPP */}
-      <a 
-        href="https://wa.me/919876543210?text=Hi%20Sharome" 
-        className="whatsapp-float" 
-        target="_blank" 
-        rel="noopener noreferrer"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/>
-        </svg>
+      <a href="https://wa.me/918816952235?text=Hi%20Sharome" className="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/></svg>
       </a>
 
     </div>
