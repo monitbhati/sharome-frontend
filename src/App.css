@@ -455,3 +455,33 @@ label {
     opacity: 0.2;
   }
 }
+/* --- LUXURY SLIDER ANIMATION --- */
+
+.hero-img-container {
+  position: relative;
+  overflow: hidden;
+  background: #f0f0f0; /* Placeholder color while loading */
+}
+
+.slider-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 1.5s ease-in-out, transform 6s ease; /* Slow fade + Slow zoom */
+  transform: scale(1);
+}
+
+.slider-img.active {
+  opacity: 1; /* Visible */
+  transform: scale(1.1); /* Subtle "Ken Burns" zoom effect */
+  z-index: 0;
+}
+
+/* Ensure overlays stay on top of the slider */
+.brand-filter, .watermark {
+  z-index: 2;
+}
