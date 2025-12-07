@@ -2,30 +2,24 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
 
-// --- IMAGE ASSETS (You can import local files or use URLs) ---
-import localHeroImage from './assets/heroImage.jpeg'
+// --- SWIPER IMPORTS (The Engine) ---
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import 'swiper/css/pagination';
 
-// Define your list of images here
+import heroImageImage from './assets/heroImage.jpeg'
+import heroImageImage1 from './assets/heroImage1.jpeg'
+import heroImageImage2 from './assets/heroImage2.jpeg'
 const slides = [
-  localHeroImage, // Your uploaded image (Index 0)
-  "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=2070&auto=format&fit=crop", // Beige Aesthetic (Index 1)
-  "https://images.unsplash.com/photo-1583391733958-e0237739502b?q=80&w=2070&auto=format&fit=crop"  // Red/Bridal (Index 2)
+  localHeroImage, 
+  heroImageImage1,
+  heroImageImage2
 ];
 
 function App() {
   useEffect(() => { document.title = "Sharomé | Modern Ethnic"; }, []);
-
-  // --- SLIDER STATE ---
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  // --- AUTOMATIC SLIDESHOW LOGIC ---
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 4000); // Change image every 4000ms (4 seconds)
-
-    return () => clearInterval(timer); // Cleanup on unmount
-  }, []);
 
   // --- FORM STATE ---
   const [formData, setFormData] = useState({
@@ -43,7 +37,7 @@ function App() {
 
   const handleUnlock = (e) => {
     e.preventDefault();
-    if (inviteCode.toUpperCase() === 'SHAROME2025') {
+    if (inviteCode.toUpperCase() === 'SHAROME2026') {
       setIsVerified(true);
     } else {
       setErrorMsg("Invalid Invite Code.");
@@ -70,20 +64,19 @@ function App() {
       await axios.post(`${BACKEND_URL}/api/orders/submit`, payload);
       setSubmitted(true);
       window.scrollTo(0, 0); 
-    } catch (error) { alert("System Error. Please try again."); } finally { setLoading(false); }
+    } catch (error) { alert("System Error."); } finally { setLoading(false); }
   }
 
-  // --- GLOBAL WALLPAPER (The Luxury Background) ---
+  // --- WALLPAPER COMPONENT ---
   const globalWallpaperStyle = {
     position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
-    backgroundImage: `url(${localHeroImage})`, // Uses your main image as faint texture
+    backgroundImage: `url(${heroImageImage})`, 
     backgroundSize: 'cover', backgroundPosition: 'center', zIndex: -10,
     filter: 'grayscale(100%) brightness(1.2) opacity(0.08)', 
     pointerEvents: 'none'
   };
   const Wallpaper = () => <div style={globalWallpaperStyle}></div>;
 
-  // --- 1. LOCK SCREEN VIEW ---
   if (!isVerified) {
     return (
       <>
@@ -94,7 +87,6 @@ function App() {
         }}>
           <h1 style={{fontFamily: 'Cormorant Garamond', fontSize: '3rem', color: '#2C3E50', marginBottom: '10px'}}>SHAROMÉ</h1>
           <p style={{fontFamily: 'Jost', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.8rem', marginBottom: '40px', color: '#888'}}>Private Beta Access</p>
-          
           <form onSubmit={handleUnlock} style={{textAlign: 'center', width: '100%', maxWidth: '300px'}}>
             <input 
               type="text" placeholder="ENTER INVITE CODE" 
@@ -102,14 +94,13 @@ function App() {
               style={{textAlign: 'center', letterSpacing: '3px', borderBottom: '1px solid #2C3E50', marginBottom: '20px', textTransform: 'uppercase', background: 'transparent', border: 'none', borderBottom: '1px solid #333', width: '100%', padding: '10px'}}
             />
             {errorMsg && <p style={{color: 'red', fontSize: '12px', marginBottom: '20px'}}>{errorMsg}</p>}
-            <button type="submit" style={{background: '#2C3E50', color: 'white', padding: '15px 30px', border: 'none', letterSpacing: '2px', fontSize: '10px', cursor: 'pointer', textTransform: 'uppercase'}}>Unlock Site</button>
+            <button type="submit" style={{background: '#2C3E50', color: 'white', padding: '15px 30px', border: 'none', letterSpacing: '2px', fontSize: '10px', cursor: 'pointer', textTransform: 'uppercase'}}>Unlock Stitch</button>
           </form>
         </div>
       </>
     )
   }
 
-  // --- 2. MAIN WEBSITE VIEW ---
   return (
     <> 
       <Wallpaper />
@@ -120,19 +111,26 @@ function App() {
           <div className="beta-tag">Private Beta</div>
         </nav>
 
-        {/* HERO SECTION WITH SLIDER */}
+        {/* HERO SECTION WITH SWIPEABLE SLIDER */}
         <header className="hero">
           <div className="hero-img-container">
-              {/* This maps through the images and shows the active one */}
-              {slides.map((slide, index) => (
-                <img 
-                  key={index}
-                  src={slide} 
-                  alt={`Sharome Campaign ${index}`} 
-                  className={`slider-img ${index === currentSlide ? 'active' : ''}`}
-                />
-              ))}
+              <Swiper
+                modules={[Autoplay, EffectFade, Pagination]}
+                effect={'fade'} // Use 'slide' if you prefer sliding over fading
+                speed={1500}
+                autoplay={{ delay: 4000, disableOnInteraction: false }}
+                pagination={{ clickable: true }} // Adds dots at the bottom
+                loop={true}
+                style={{ width: '100%', height: '100%' }}
+              >
+                {slides.map((slide, index) => (
+                  <SwiperSlide key={index}>
+                    <img src={slide} alt={`Sharome Look ${index}`} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
               
+              {/* Overlays remain on top */}
               <div className="brand-filter"></div>
               <div className="watermark">Sharomé</div>
           </div>
@@ -142,7 +140,11 @@ function App() {
           </div>
         </header>
 
-        <section className="manifesto-section">
+        {/* ... (The rest of your Manifesto, Form, Footer code remains exactly the same) ... */}
+        
+        {/* Paste the rest of your sections here (Manifesto, Reviews, Form, Footer, WhatsApp) from previous code */}
+        {/* I am omitting them here to save space, but DO NOT DELETE THEM in your file */}
+         <section className="manifesto-section">
           <p className="manifesto-text">
             "Fashion shouldn't just fit your body, it should fit your <span className="highlight">soul</span>. 
             Sharomé is inviting 50 muses to experience the luxury of true custom tailoring."
