@@ -13,7 +13,7 @@ import heroImageImage from './assets/heroImage.jpeg'
 import heroImageImage1 from './assets/heroImage1.jpeg'
 import heroImageImage2 from './assets/heroImage2.jpeg'
 const slides = [
-  localHeroImage, 
+  heroImageImage, 
   heroImageImage1,
   heroImageImage2
 ];
