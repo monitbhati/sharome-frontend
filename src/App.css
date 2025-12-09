@@ -350,31 +350,46 @@ label {
   color: #aaa;
 }
 /* --- ANIMATED WHATSAPP BUTTON --- */
+/* --- LUXURY CONCIERGE BUTTON --- */
 .whatsapp-float {
   position: fixed;
-  width: 60px;
-  height: 60px;
   bottom: 30px;
   right: 30px;
-  background-color: #25d366;
+  background-color: #2C3E50; /* Matches your Brand Primary Color */
   color: #FFF;
-  border-radius: 50px;
+  border-radius: 50px; /* Pill shape */
+  padding: 12px 25px;
   text-align: center;
-  font-size: 30px;
-  box-shadow: 2px 2px 3px #999;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   z-index: 1000;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
   text-decoration: none;
   transition: all 0.3s ease;
-  animation: pulse-green 2s infinite;
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
 .whatsapp-float:hover {
-  background-color: #128C7E;
-  transform: scale(1.1);
+  background-color: #1a252f; /* Darker on hover */
+  transform: translateY(-3px); /* Subtle lift */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
+
+/* Optional: Add a tiny "online" dot */
+.whatsapp-float::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: #25d366; /* Small hint of green to show active status */
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
 
 @keyframes pulse-green {
   0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
