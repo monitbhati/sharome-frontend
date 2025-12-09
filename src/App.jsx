@@ -271,7 +271,7 @@ function App() {
         
         <div className="faq-item">
           <div className="faq-question">Is the outfit really free? <span>+</span></div>
-          <div className="faq-answer">Yes. For our Beta Launch, we are selecting 50 users to receive a custom stitched outfit (stitching cost waived). You only provide the fabric or pay for fabric at cost price.</div>
+          <div className="faq-answer">Yes. For our Beta Launch, we are selecting 50 users to receive a custom stitched outfit (stitching cost waived). We will provide the fabric at no cost, or you may choose to provide your own fabric.</div>
         </div>
 
         <div className="faq-item">
