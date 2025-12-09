@@ -142,22 +142,52 @@ body {
   .hero h1 { font-size: 3rem; }
 }
 
-/* --- 3. MANIFESTO --- */
+/* --- 3. MANIFESTO SECTION (The Brand Ethos) --- */
 .manifesto-section {
-  padding: 80px 20px;
+  padding: 100px 20px; /* Lots of breathing room */
+  background-color: var(--bg-color); /* Matches your off-white theme */
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  border-bottom: 1px solid rgba(0,0,0,0.05); /* Subtle divider line */
 }
+
 .manifesto-text {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  line-height: 1.4;
-  color: var(--primary);
+  font-family: var(--font-heading); /* Cormorant Garamond */
+  font-size: 2.2rem; /* Large, readable text */
+  line-height: 1.5;
+  color: var(--primary); /* Deep Charcoal */
+  font-weight: 400;
 }
+
+/* The word "soul" gets special treatment */
 .highlight {
-  color: var(--accent);
   font-style: italic;
+  font-weight: 600;
+  color: var(--accent); /* Sage Green or Gold */
+  position: relative;
+  display: inline-block;
+}
+
+/* Optional: Add a subtle underline to the highlight word */
+.highlight::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 5px;
+  left: 0;
+  background-color: rgba(165, 165, 141, 0.3); /* Faint underline */
+}
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+  .manifesto-section {
+    padding: 60px 20px;
+  }
+  .manifesto-text {
+    font-size: 1.5rem; /* Smaller but still impactful on phone */
+  }
 }
 
 /* --- 4. FORM SECTION --- */
