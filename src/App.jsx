@@ -139,17 +139,32 @@ function App() {
             <p>The new language of Indian Ethnic Wear.</p>
           </div>
         </header>
-
-        {/* ... (The rest of your Manifesto, Form, Footer code remains exactly the same) ... */}
-        
-        {/* Paste the rest of your sections here (Manifesto, Reviews, Form, Footer, WhatsApp) from previous code */}
-        {/* I am omitting them here to save space, but DO NOT DELETE THEM in your file */}
          <section className="manifesto-section">
           <p className="manifesto-text">
             "Fashion shouldn't just fit your body, it should fit your <span className="highlight">soul</span>. 
             Sharomé is inviting 50 muses to experience the luxury of true custom tailoring."
           </p>
         </section>
+        {/* 3.1 FEATURES (Why Us) */}
+      <section className="features-section">
+        <div className="features-grid">
+          <div className="feature-card">
+            <span className="feature-icon">✨</span>
+            <h4>Unique Designs</h4>
+            <p>We don't do mass production. Every piece is designed from scratch based on your vision.</p>
+          </div>
+          <div className="feature-card">
+            <span className="feature-icon">📏</span>
+            <h4>Precision Fit</h4>
+            <p>Our master tailors ensure a silhouette that compliments your body type perfectly.</p>
+          </div>
+          <div className="feature-card">
+            <span className="feature-icon">🚚</span>
+            <h4>Doorstep Service</h4>
+            <p>From fabric pickup to final delivery, you never have to leave your home.</p>
+          </div>
+        </div>
+      </section>
 
         <section className="form-section">
           <div className="form-wrapper">
@@ -250,16 +265,59 @@ function App() {
             )}
           </div>
         </section>
-
-        <footer className="footer">
-          <div className="footer-content">
-            <p><strong>Sharomé is currently in its Initial Launch Phase.</strong></p>
-            <p>Please treat this site as an invitation request portal.</p>
-            <div className="copyright">© 2025 Sharomé Clothing. All Rights Reserved.</div>
-          </div>
-        </footer>
+        {/* 4.5 FAQ SECTION */}
+      <section className="faq-section">
+        <h2 className="form-title" style={{fontSize: '2rem'}}>Common Questions</h2>
         
-        <a href="https://wa.me/918816952235?text=Hi%20Sharome!" className="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <div className="faq-item">
+          <div className="faq-question">Is the outfit really free? <span>+</span></div>
+          <div className="faq-answer">Yes. For our Beta Launch, we are selecting 50 users to receive a custom stitched outfit (stitching cost waived). You only provide the fabric or pay for fabric at cost price.</div>
+        </div>
+
+        <div className="faq-item">
+          <div className="faq-question">How does sizing work? <span>+</span></div>
+          <div className="faq-answer">Once selected, our stylist will contact you via WhatsApp to guide you through taking measurements, or we can arrange a home visit in Gurugram.</div>
+        </div>
+
+        <div className="faq-item">
+          <div className="faq-question">Can I share a Pinterest photo? <span>+</span></div>
+          <div className="faq-answer">Absolutely. We specialize in replicating designs from social media references. Upload the screenshot in the form above.</div>
+        </div>
+      </section>
+
+       {/* 5. FAT FOOTER */}
+      <footer className="fat-footer">
+        <div className="footer-grid">
+          <div className="footer-col" style={{flex: 2}}>
+            <div className="brand-logo" style={{color: '#fff', fontSize: '1.5rem'}}>SHAROMÉ</div>
+            <p style={{color: '#888', marginTop: '20px', maxWidth: '300px'}}>
+              Redefining ethnic wear with modern sensibilities. Crafted in Gurugram for the world.
+            </p>
+          </div>
+          
+          <div className="footer-col">
+            <h5>Explore</h5>
+            <ul>
+              <li>Beta Program</li>
+              <li>Our Story</li>
+              <li>Fabric Guide</li>
+            </ul>
+          </div>
+
+          <div className="footer-col">
+            <h5>Contact</h5>
+            <ul>
+              <li>+91 9266390099</li>
+              <li>Gurugram, India</li>
+            </ul>
+          </div>
+        </div>
+        <div style={{textAlign: 'center', marginTop: '60px', color: '#555', fontSize: '0.8rem', borderTop: '1px solid #333', paddingTop: '20px'}}>
+          © 2025 Sharomé Clothing. All Rights Reserved.
+        </div>
+      </footer>
+        
+        <a href="https://wa.me/919266390099?text=Hi%20Sharome!" className="whatsapp-float" target="_blank" rel="noopener noreferrer">
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/></svg>
         </a>
 
