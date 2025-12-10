@@ -12,10 +12,14 @@ import 'swiper/css/pagination';
 import heroImageImage from './assets/heroImage.jpeg'
 import heroImageImage1 from './assets/heroImage1.jpeg'
 import heroImageImage2 from './assets/heroImage2.jpeg'
+import heroImageImage3 from './assets/heroImage3.jpeg'
+import heroImageImage4 from './assets/heroImage4.jpeg'
 const slides = [
   heroImageImage, 
   heroImageImage1,
-  heroImageImage2
+  heroImageImage2,
+  heroImageImage3,
+  heroImageImage4
 ];
 
 function App() {
