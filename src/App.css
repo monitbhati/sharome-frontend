@@ -625,3 +625,46 @@ label {
   cursor: pointer;
 }
 .footer-col li:hover { color: #fff; }
+/* --- SWIPER FIXES (Prevents Overlap) --- */
+
+/* 1. Force the container to have a fixed height on mobile */
+.hero-img-container {
+  /* On Desktop, it inherits 100% height from parent */
+  width: 100%;
+  height: 100%; 
+  position: relative;
+  z-index: 1;
+}
+
+/* 2. Force Swiper to take up all available space */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+/* 3. THE MAGIC FIX: Force images to crop instead of stretch/shrink */
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This cuts off edges so image fits perfectly */
+  object-position: top center; /* Focus on the top/center (faces/outfits) */
+}
+
+/* 4. Mobile Specific Height Adjustment */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    height: auto; /* Let it grow */
+  }
+
+  .hero-img-container {
+    width: 100%;
+    height: 65vh; /* Force the image area to be 65% of screen height */
+  }
+
+  .hero-content {
+    width: 100%;
+    min-height: 35vh; /* Text takes remaining space */
+  }
+}
