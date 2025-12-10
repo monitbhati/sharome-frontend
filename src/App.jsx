@@ -10,12 +10,9 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 
 import heroImageImage from './assets/heroImage.jpeg'
-import heroImageImage1 from './assets/heroImage1.jpeg'
-import heroImageImage2 from './assets/heroImage2.jpeg'
+
 const slides = [
   heroImageImage, 
-  heroImageImage1,
-  heroImageImage2
 ];
 
 function App() {
