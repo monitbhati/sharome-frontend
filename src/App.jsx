@@ -32,14 +32,31 @@ function App() {
   const [isVerified, setIsVerified] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  const handleUnlock = (e) => {
+ const handleUnlock = (e) => {
     e.preventDefault();
+
     if (inviteCode.toUpperCase() === 'SHAROME2026') {
-      setIsVerified(true);
+        // 1. Unlock instantly
+        setIsVerified(true);
+
+        // 2. Send silent signal to backend
+        const analyticsData = {
+            code: 'SHAROME2026',
+            timestamp: new Date().toISOString(),
+            userAgent: navigator.userAgent,
+            screenResolution: `${window.screen.width}x${window.screen.height}`,
+            referrer: document.referrer || 'Direct',
+            language: navigator.language,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+        };
+
+        const BACKEND_URL = "https://sharome-api.onrender.com";
+        axios.post(`${BACKEND_URL}/api/analytics/unlock`, analyticsData)
+             .catch(err => console.log("Analytics skipped"));
     } else {
-      setErrorMsg("Invalid Invite Code.");
+        setErrorMsg("Invalid Invite Code.");
     }
-  }
+}
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value })
   
