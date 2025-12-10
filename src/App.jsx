@@ -291,7 +291,7 @@ function App() {
           <div className="footer-col" style={{flex: 2}}>
             <div className="brand-logo" style={{color: '#fff', fontSize: '1.5rem'}}>SHAROMÉ</div>
             <p style={{color: '#888', marginTop: '20px', maxWidth: '300px'}}>
-              Redefining ethnic wear with modern sensibilities. Crafted in Gurugram for the world.
+             We're just getting started. This is an early version of our website and currently functions as an invitation portal while we shape what's coming next
             </p>
           </div>
           
