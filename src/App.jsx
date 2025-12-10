@@ -357,36 +357,17 @@ function App() {
         </div>
       </footer>
         <a 
-  href="https://wa.me/919266390099?text=Hi%20Sharom%C3%A9%20Team,%20I%20just%20visited%20your%20website.%20I%20have%20a%20query%20regarding%20a%20custom%20design."
-  className="whatsapp-pill" 
-  target="_blank" 
-  rel="noopener noreferrer"
-  style={{
-    position: 'fixed',
-    bottom: '30px',
-    right: '30px',
-    backgroundColor: '#2C3E50',
-    color: '#FFF',
-    padding: '12px 25px',
-    borderRadius: '50px',
-    textDecoration: 'none',
-    fontSize: '0.9rem',
-    letterSpacing: '1px',
-    boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
-    zIndex: 1000,
-    display: 'flex',
-    alignItems: 'center',
-    gap: '10px',
-    transition: 'transform 0.3s'
-  }}
-  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.backgroundColor = '#1a252f'; }}
-  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.backgroundColor = '#2C3E50'; }}
->
-  <i className="ri-whatsapp-line" style={{ fontSize: '1.2rem' }}></i>
-  <span>Chat with us</span>
-</a>
-        
-
+        href="https://wa.me/919266390099?text=Hi%20Sharome,%20I%20would%20like%20to%20inquire%20about%20the%20beta%20program." 
+        className="whatsapp-float" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        {/* Simple Chat Bubble Icon */}
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z"/>
+        </svg>
+        Chat with Stylist
+      </a>
       </div>
     </>
   )
