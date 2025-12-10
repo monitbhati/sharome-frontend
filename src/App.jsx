@@ -9,11 +9,6 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 
-import heroImageImage from './assets/heroImage.jpeg'
-const slides = [
-  heroImageImage, 
-];
-
 function App() {
   useEffect(() => { document.title = "Sharomé | Modern Ethnic"; }, []);
 
