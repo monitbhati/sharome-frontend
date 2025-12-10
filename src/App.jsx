@@ -147,6 +147,26 @@ function App() {
             Sharomé is inviting 50 muses to experience the luxury of true custom tailoring."
           </p>
         </section>
+        <section className="process-section">
+  <h2 style={{ fontFamily: 'Cormorant Garamond', fontSize: '2rem', color: '#2C3E50' }}>The Journey</h2>
+  <div className="process-grid">
+    <div className="process-step">
+      <div className="step-number">01</div>
+      <div className="step-title">The Vision</div>
+      <p className="step-desc">Submit your references or sketch via our secure portal.</p>
+    </div>
+    <div className="process-step">
+      <div className="step-number">02</div>
+      <div className="step-title">The Consult</div>
+      <p className="step-desc">We connect via WhatsApp to finalize fabrics and measurements.</p>
+    </div>
+    <div className="process-step">
+      <div className="step-number">03</div>
+      <div className="step-title">The Craft</div>
+      <p className="step-desc">Your bespoke piece is hand-stitched and shipped to your door.</p>
+    </div>
+  </div>
+</section>
 
         <section className="form-section">
           <div className="form-wrapper">
@@ -163,14 +183,56 @@ function App() {
                 <h2 className="form-title">The Application</h2>
 
                 <div className="input-row">
-                  <div className="input-group">
-                    <label>Full Name</label>
-                    <input name="customerName" required onChange={handleChange} />
-                  </div>
-                  <div className="input-group">
-                    <label>WhatsApp Number</label>
-                    <input name="phoneNumber" type="tel" required onChange={handleChange} placeholder="+91" />
-                  </div>
+                  // In your JSX, replace the existing "Design Reference" input-group with this:
+
+  <div className="input-group">
+  <label>Design Reference / Sketch</label>
+  
+  <div 
+    className={`upload-trigger ${formData.referenceImageUrl ? 'active-upload' : ''}`} 
+    onClick={() => document.getElementById('fileInput').click()}
+    style={{ 
+      position: 'relative', 
+      overflow: 'hidden', 
+      minHeight: '120px',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}
+  >
+    {formData.referenceImageUrl ? (
+      // SHOW PREVIEW IF IMAGE EXISTS
+      <>
+        <img 
+          src={formData.referenceImageUrl} 
+          alt="Preview" 
+          style={{ 
+            position: 'absolute', 
+            width: '100%', 
+            height: '100%', 
+            objectFit: 'cover', 
+            opacity: '0.3', // Fade it out slightly so text is visible
+            zIndex: 1
+          }} 
+        />
+        <div style={{ zIndex: 2, position: 'relative' }}>
+          <i className="ri-check-line" style={{ fontSize: '1.5rem', color: '#2C3E50' }}></i>
+          <p style={{ fontSize: '0.8rem', fontWeight: 'bold', margin: '5px 0' }}>Image Attached</p>
+          <span style={{ fontSize: '0.6rem', textDecoration: 'underline' }}>Click to change</span>
+        </div>
+      </>
+    ) : (
+      // SHOW DEFAULT STATE
+      <>
+        <i className="ri-upload-cloud-line" style={{ fontSize: '1.5rem', color: '#888' }}></i>
+        <p style={{ fontSize: '0.8rem', marginTop: '5px', color: '#888' }}>+ Upload Moodboard</p>
+      </>
+    )}
+    
+    <input id="fileInput" type="file" accept="image/*" hidden onChange={handleImageUpload} />
+  </div>
+</div>
                 </div>
 
                 <h3 style={{fontSize: '13px', textTransform: 'uppercase', color: '#2C3E50', marginBottom: '20px', letterSpacing: '2px', borderBottom: '1px solid #eee', paddingBottom: '10px', marginTop: '40px'}}>Shipping Details</h3>
@@ -255,10 +317,36 @@ function App() {
             <div className="copyright">© 2025 Sharomé Clothing. All Rights Reserved.</div>
           </div>
         </footer>
+        <a 
+  href="https://wa.me/919266390099?text=Hi%20Sharom%C3%A9%20Team,%20I%20just%20visited%20your%20website.%20I%20have%20a%20query%20regarding%20a%20custom%20design."
+  className="whatsapp-pill" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  style={{
+    position: 'fixed',
+    bottom: '30px',
+    right: '30px',
+    backgroundColor: '#2C3E50',
+    color: '#FFF',
+    padding: '12px 25px',
+    borderRadius: '50px',
+    textDecoration: 'none',
+    fontSize: '0.9rem',
+    letterSpacing: '1px',
+    boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
+    zIndex: 1000,
+    display: 'flex',
+    alignItems: 'center',
+    gap: '10px',
+    transition: 'transform 0.3s'
+  }}
+  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.backgroundColor = '#1a252f'; }}
+  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.backgroundColor = '#2C3E50'; }}
+>
+  <i className="ri-whatsapp-line" style={{ fontSize: '1.2rem' }}></i>
+  <span>Chat with us</span>
+</a>
         
-        <a href="https://wa.me/918816952235?text=Hi%20Sharome!" className="whatsapp-float" target="_blank" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/></svg>
-        </a>
 
       </div>
     </>
