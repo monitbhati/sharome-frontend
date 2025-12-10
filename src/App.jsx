@@ -119,13 +119,14 @@ function App() {
         <header className="hero">
           <div className="hero-img-container">
               <Swiper
-                modules={[Autoplay, EffectFade, Pagination]}
-                effect={'fade'} // Use 'slide' if you prefer sliding over fading
-                speed={1500}
-                autoplay={{ delay: 4000, disableOnInteraction: false }}
-                pagination={{ clickable: true }} // Adds dots at the bottom
-                loop={true}
-                style={{ width: '100%', height: '100%' }}
+               modules={[Autoplay, EffectFade, Pagination]}
+               effect={'fade'}
+               fadeEffect={{ crossFade: true }} /* <--- ADD THIS LINE (Crucial Fix) */
+               speed={1500}
+               autoplay={{ delay: 4000, disableOnInteraction: false }}
+               pagination={{ clickable: true }}
+               loop={true}
+               style={{ width: '100%', height: '100%' }}
               >
                 {slides.map((slide, index) => (
                   <SwiperSlide key={index}>
