@@ -307,14 +307,55 @@ function App() {
             )}
           </div>
         </section>
+          <section className="faq-section">
+        <h2 className="form-title" style={{fontSize: '2rem'}}>Common Questions</h2>
+        
+        <div className="faq-item">
+          <div className="faq-question">Is the outfit really free? <span>+</span></div>
+          <div className="faq-answer">Yes. For our Beta Launch, we are selecting 50 users to receive a custom stitched outfit (stitching cost waived). You can use our fabric at no charge, or bring your own fabric — whichever you prefer. .</div>
+        </div>
 
-        <footer className="footer">
-          <div className="footer-content">
-            <p><strong>Sharomé is currently in its Initial Launch Phase.</strong></p>
-            <p>Please treat this site as an invitation request portal.</p>
-            <div className="copyright">© 2025 Sharomé Clothing. All Rights Reserved.</div>
+        <div className="faq-item">
+          <div className="faq-question">How does sizing work? <span>+</span></div>
+          <div className="faq-answer">Once selected, our stylist will contact you via WhatsApp to guide you through taking measurements, or we can arrange a home visit in Gurugram.</div>
+        </div>
+
+        <div className="faq-item">
+          <div className="faq-question">Can I share a Pinterest photo? <span>+</span></div>
+          <div className="faq-answer">Absolutely. We specialize in replicating designs from social media references. Upload the screenshot in the form above.</div>
+        </div>
+      </section>
+          {/* 5. FAT FOOTER */}
+      <footer className="fat-footer">
+        <div className="footer-grid">
+          <div className="footer-col" style={{flex: 2}}>
+            <div className="brand-logo" style={{color: '#fff', fontSize: '1.5rem'}}>SHAROMÉ</div>
+            <p style={{color: '#888', marginTop: '20px', maxWidth: '300px'}}>
+              Currently operating as an invitation-only portal. The full experience launches soon.
+            </p>
           </div>
-        </footer>
+          
+          <div className="footer-col">
+            <h5>Explore</h5>
+            <ul>
+              <li>Beta Program</li>
+              <li>Our Story</li>
+              <li>Fabric Guide</li>
+            </ul>
+          </div>
+
+          <div className="footer-col">
+            <h5>Contact</h5>
+            <ul>
+              <li>+91 9266390099</li>
+              <li>Gurugram, India</li>
+            </ul>
+          </div>
+        </div>
+        <div style={{textAlign: 'center', marginTop: '60px', color: '#555', fontSize: '0.8rem', borderTop: '1px solid #333', paddingTop: '20px'}}>
+          © 2025 Sharomé Clothing. All Rights Reserved.
+        </div>
+      </footer>
         <a 
   href="https://wa.me/919266390099?text=Hi%20Sharom%C3%A9%20Team,%20I%20just%20visited%20your%20website.%20I%20have%20a%20query%20regarding%20a%20custom%20design."
   className="whatsapp-pill" 
