@@ -9,6 +9,15 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 
+import heroImageImage from './assets/heroImage.jpeg'
+import heroImageImage1 from './assets/heroImage1.jpeg'
+import heroImageImage2 from './assets/heroImage2.jpeg'
+const slides = [
+  heroImageImage, 
+  heroImageImage1,
+  heroImageImage2
+];
+
 function App() {
   useEffect(() => { document.title = "Sharomé | Modern Ethnic"; }, []);
 
@@ -106,35 +115,20 @@ function App() {
         <header className="hero">
           <div className="hero-img-container">
               <Swiper
-  modules={[Autoplay, EffectFade, Pagination]}
-  effect={'fade'}
-  fadeEffect={{ crossFade: true }}
-  speed={1000}
-  autoplay={{ delay: 4000, disableOnInteraction: false }}
-  pagination={{ clickable: true }}
-  loop={true}
-  style={{ width: '100%', height: '100%' }}
->
-  {/* SLIDE 1: The Hero Image */}
-  <SwiperSlide>
-    <img 
-      src={heroImageImage} 
-      alt="Sharome Bespoke Detail" 
-      style={{width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center'}} 
-    />
-  </SwiperSlide>
-
-  {/* SLIDE 2: The Black Message Slide */}
-  <SwiperSlide className="black-slide">
-    <div className="text-content">
-      <h2 className="wait-msg">MASTERPIECES IN THE MAKING.</h2>
-      <p className="wait-sub">
-        We are stitching the final details.<br />
-        A complete digital runway is coming.
-      </p>
-    </div>
-  </SwiperSlide>
-</Swiper>
+                modules={[Autoplay, EffectFade, Pagination]}
+                effect={'fade'} // Use 'slide' if you prefer sliding over fading
+                speed={1500}
+                autoplay={{ delay: 4000, disableOnInteraction: false }}
+                pagination={{ clickable: true }} // Adds dots at the bottom
+                loop={true}
+                style={{ width: '100%', height: '100%' }}
+              >
+                {slides.map((slide, index) => (
+                  <SwiperSlide key={index}>
+                    <img src={slide} alt={`Sharome Look ${index}`} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
               
               {/* Overlays remain on top */}
               <div className="brand-filter"></div>
@@ -145,32 +139,17 @@ function App() {
             <p>The new language of Indian Ethnic Wear.</p>
           </div>
         </header>
+
+        {/* ... (The rest of your Manifesto, Form, Footer code remains exactly the same) ... */}
+        
+        {/* Paste the rest of your sections here (Manifesto, Reviews, Form, Footer, WhatsApp) from previous code */}
+        {/* I am omitting them here to save space, but DO NOT DELETE THEM in your file */}
          <section className="manifesto-section">
           <p className="manifesto-text">
             "Fashion shouldn't just fit your body, it should fit your <span className="highlight">soul</span>. 
             Sharomé is inviting 50 muses to experience the luxury of true custom tailoring."
           </p>
         </section>
-        {/* 3.1 FEATURES (Why Us) */}
-      <section className="features-section">
-        <div className="features-grid">
-          <div className="feature-card">
-            <span className="feature-icon">✨</span>
-            <h4>Unique Designs</h4>
-            <p>We don't do mass production. Every piece is designed from scratch based on your vision.</p>
-          </div>
-          <div className="feature-card">
-            <span className="feature-icon">📏</span>
-            <h4>Precision Fit</h4>
-            <p>Our master tailors ensure a silhouette that compliments your body type perfectly.</p>
-          </div>
-          <div className="feature-card">
-            <span className="feature-icon">🚚</span>
-            <h4>Doorstep Service</h4>
-            <p>From fabric pickup to final delivery, you never have to leave your home.</p>
-          </div>
-        </div>
-      </section>
 
         <section className="form-section">
           <div className="form-wrapper">
@@ -271,71 +250,18 @@ function App() {
             )}
           </div>
         </section>
-        {/* 4.5 FAQ SECTION */}
-      <section className="faq-section">
-        <h2 className="form-title" style={{fontSize: '2rem'}}>Common Questions</h2>
+
+        <footer className="footer">
+          <div className="footer-content">
+            <p><strong>Sharomé is currently in its Initial Launch Phase.</strong></p>
+            <p>Please treat this site as an invitation request portal.</p>
+            <div className="copyright">© 2025 Sharomé Clothing. All Rights Reserved.</div>
+          </div>
+        </footer>
         
-        <div className="faq-item">
-          <div className="faq-question">Is the outfit really free? <span>+</span></div>
-          <div className="faq-answer">Yes. For our Beta Launch, we are selecting 50 users to receive a custom stitched outfit (stitching cost waived). We will provide the fabric at no cost, or you may choose to provide your own fabric.</div>
-        </div>
-
-        <div className="faq-item">
-          <div className="faq-question">How does sizing work? <span>+</span></div>
-          <div className="faq-answer">Once selected, our stylist will contact you via WhatsApp to guide you through taking measurements, or we can arrange a home visit in Gurugram.</div>
-        </div>
-
-        <div className="faq-item">
-          <div className="faq-question">Can I share a Pinterest photo? <span>+</span></div>
-          <div className="faq-answer">Absolutely. We specialize in replicating designs from social media references. Upload the screenshot in the form above.</div>
-        </div>
-      </section>
-
-       {/* 5. FAT FOOTER */}
-      <footer className="fat-footer">
-        <div className="footer-grid">
-          <div className="footer-col" style={{flex: 2}}>
-            <div className="brand-logo" style={{color: '#fff', fontSize: '1.5rem'}}>SHAROMÉ</div>
-            <p style={{color: '#888', marginTop: '20px', maxWidth: '300px'}}>
-             We're just getting started. This is an early version of our website and currently functions as an invitation portal while we shape what's coming next
-            </p>
-          </div>
-          
-          <div className="footer-col">
-            <h5>Explore</h5>
-            <ul>
-              <li>Beta Program</li>
-              <li>Our Story</li>
-              <li>Fabric Guide</li>
-            </ul>
-          </div>
-
-          <div className="footer-col">
-            <h5>Contact</h5>
-            <ul>
-              <li>+91 9266390099</li>
-              <li>Gurugram, India</li>
-            </ul>
-          </div>
-        </div>
-        <div style={{textAlign: 'center', marginTop: '60px', color: '#555', fontSize: '0.8rem', borderTop: '1px solid #333', paddingTop: '20px'}}>
-          © 2025 Sharomé Clothing. All Rights Reserved.
-        </div>
-      </footer>
-        
-        {/* 6. CONCIERGE BUTTON (Updated) */}
-      <a 
-        href="https://wa.me/919266390099?text=Hi%20Sharome,%20I%20would%20like%20to%20inquire%20about%20the%20beta%20program." 
-        className="whatsapp-float" 
-        target="_blank" 
-        rel="noopener noreferrer"
-      >
-        {/* Simple Chat Bubble Icon */}
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z"/>
-        </svg>
-        Chat with us
-      </a>
+        <a href="https://wa.me/918816952235?text=Hi%20Sharome!" className="whatsapp-float" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/></svg>
+        </a>
 
       </div>
     </>
