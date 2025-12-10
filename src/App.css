@@ -646,46 +646,44 @@ label {
   height: 100%;
   object-fit: cover; /* Forces image to fill the box exactly */
 }
-/* --- SWIPER FIXES (Prevents Overlap) --- */
+/* --- APP.CSS ADDITIONS --- */
 
-/* 1. Force the container to have a fixed height on mobile */
-.hero-img-container {
-  /* On Desktop, it inherits 100% height from parent */
-  width: 100%;
-  height: 100%; 
-  position: relative;
-  z-index: 1;
+/* 1. The Black Slide Container */
+.black-slide {
+  background: linear-gradient(135deg, #1c1c1c 0%, #000000 100%) !important;
+  color: #ffffff;
+  
+  /* Flexbox Centering */
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-/* 2. Force Swiper to take up all available space */
-.swiper {
-  width: 100%;
-  height: 100%;
+/* 2. The Main Headline */
+.wait-msg {
+  font-family: 'Playfair Display', serif; /* Or 'Cormorant Garamond' since you use it elsewhere */
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  color: #e0e0e0;
+  text-transform: uppercase;
 }
 
-/* 3. THE MAGIC FIX: Force images to crop instead of stretch/shrink */
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* This cuts off edges so image fits perfectly */
-  object-position: top center; /* Focus on the top/center (faces/outfits) */
+/* 3. The Subtext */
+.wait-sub {
+  font-family: 'Jost', sans-serif; /* Matching your existing font */
+  font-size: 1.1rem;
+  opacity: 0.8;
+  line-height: 1.6;
 }
 
-/* 4. Mobile Specific Height Adjustment */
+/* Mobile Tweak */
 @media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    height: auto; /* Let it grow */
-  }
-
-  .hero-img-container {
-    width: 100%;
-    height: 65vh; /* Force the image area to be 65% of screen height */
-  }
-
-  .hero-content {
-    width: 100%;
-    min-height: 35vh; /* Text takes remaining space */
+  .wait-msg {
+    font-size: 1.8rem;
+    padding: 0 15px;
   }
 }

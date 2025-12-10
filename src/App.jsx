@@ -10,16 +10,8 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 
 import heroImageImage from './assets/heroImage.jpeg'
-import heroImageImage1 from './assets/heroImage1.jpeg'
-import heroImageImage2 from './assets/heroImage2.jpeg'
-import heroImageImage3 from './assets/heroImage3.jpeg'
-import heroImageImage4 from './assets/heroImage4.jpeg'
 const slides = [
   heroImageImage, 
-  heroImageImage1,
-  heroImageImage2,
-  heroImageImage3,
-  heroImageImage4
 ];
 
 function App() {
@@ -119,21 +111,35 @@ function App() {
         <header className="hero">
           <div className="hero-img-container">
               <Swiper
-               modules={[Autoplay, EffectFade, Pagination]}
-               effect={'fade'}
-               fadeEffect={{ crossFade: true }} /* <--- ADD THIS LINE (Crucial Fix) */
-               speed={1500}
-               autoplay={{ delay: 4000, disableOnInteraction: false }}
-               pagination={{ clickable: true }}
-               loop={true}
-               style={{ width: '100%', height: '100%' }}
-              >
-                {slides.map((slide, index) => (
-                  <SwiperSlide key={index}>
-                    <img src={slide} alt={`Sharome Look ${index}`} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+  modules={[Autoplay, EffectFade, Pagination]}
+  effect={'fade'}
+  fadeEffect={{ crossFade: true }}
+  speed={1000}
+  autoplay={{ delay: 4000, disableOnInteraction: false }}
+  pagination={{ clickable: true }}
+  loop={true}
+  style={{ width: '100%', height: '100%' }}
+>
+  {/* SLIDE 1: The Hero Image */}
+  <SwiperSlide>
+    <img 
+      src={heroImageImage} 
+      alt="Sharome Bespoke Detail" 
+      style={{width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center'}} 
+    />
+  </SwiperSlide>
+
+  {/* SLIDE 2: The Black Message Slide */}
+  <SwiperSlide className="black-slide">
+    <div className="text-content">
+      <h2 className="wait-msg">MASTERPIECES IN THE MAKING.</h2>
+      <p className="wait-sub">
+        We are stitching the final details.<br />
+        A complete digital runway is coming.
+      </p>
+    </div>
+  </SwiperSlide>
+</Swiper>
               
               {/* Overlays remain on top */}
               <div className="brand-filter"></div>
