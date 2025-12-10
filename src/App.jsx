@@ -183,9 +183,7 @@ function App() {
                 <h2 className="form-title">The Application</h2>
 
                 <div className="input-row">
-                  // In your JSX, replace the existing "Design Reference" input-group with this:
-
-  <div className="input-group">
+                   <div className="input-group">
   <label>Design Reference / Sketch</label>
   
   <div 
