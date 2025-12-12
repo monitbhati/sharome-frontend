@@ -35,13 +35,13 @@ function App() {
  const handleUnlock = (e) => {
     e.preventDefault();
 
-    if (inviteCode.toUpperCase() === 'SHAROME2026') {
+    if (inviteCode.toUpperCase() === 'SHAROMEFORSHARON') {
         // 1. Unlock instantly
         setIsVerified(true);
 
         // 2. Send silent signal to backend
         const analyticsData = {
-            code: 'SHAROME2026',
+            code: 'SHAROMEFORSHARON',
             timestamp: new Date().toISOString(),
             userAgent: navigator.userAgent,
             screenResolution: `${window.screen.width}x${window.screen.height}`,
