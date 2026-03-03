@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import './App.css'
+import './global.css'
 
 // --- SWIPER IMPORTS (The Engine) ---
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -105,7 +105,7 @@ function App() {
             <input 
               type="text" placeholder="ENTER INVITE CODE" 
               value={inviteCode} onChange={(e) => setInviteCode(e.target.value)}
-              style={{textAlign: 'center', letterSpacing: '3px', borderBottom: '1px solid #2C3E50', marginBottom: '20px', textTransform: 'uppercase', background: 'transparent', border: 'none', borderBottom: '1px solid #333', width: '100%', padding: '10px'}}
+              style={{textAlign: 'center', letterSpacing: '3px', marginBottom: '20px', textTransform: 'uppercase', background: 'transparent', border: 'none', borderBottom: '1px solid #333', width: '100%', padding: '10px'}}
             />
             {errorMsg && <p style={{color: 'red', fontSize: '12px', marginBottom: '20px'}}>{errorMsg}</p>}
             <button type="submit" style={{background: '#2C3E50', color: 'white', padding: '15px 30px', border: 'none', letterSpacing: '2px', fontSize: '10px', cursor: 'pointer', textTransform: 'uppercase'}}>Unlock Stitch</button>
