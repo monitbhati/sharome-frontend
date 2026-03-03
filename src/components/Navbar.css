@@ -1,0 +1,185 @@
+/* ─────────────────────────────────────────
+   SHAROMÉ — SHARED NAVBAR
+   Works across all pages
+───────────────────────────────────────── */
+
+.navbar {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: rgba(253, 251, 247, 0.95);
+  z-index: 200;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.navbar--scrolled {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* ── BRAND ── */
+.brand-logo {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--primary);
+  text-transform: uppercase;
+  font-style: italic;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.brand-logo:hover { opacity: 0.7; }
+
+/* ── DESKTOP LINKS ── */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #888;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.2s;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover { color: var(--primary); }
+.nav-link:hover::after { width: 100%; }
+
+.nav-link--active {
+  color: var(--primary);
+  font-weight: 500;
+}
+.nav-link--active::after { width: 100%; }
+
+/* ── BETA TAG ── */
+.beta-tag {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: 1px solid var(--primary);
+  padding: 6px 15px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  color: var(--primary);
+}
+
+/* ── HAMBURGER ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 300;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--primary);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Hamburger → X animation */
+.hamburger--open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger--open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger--open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ── MOBILE DRAWER ── */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 75%;
+  max-width: 300px;
+  height: 100vh;
+  background: var(--bg-color);
+  z-index: 250;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 40px;
+  transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-left: 1px solid #e8e3da;
+}
+.mobile-drawer--open { right: 0; }
+
+.mobile-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-link {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.2s;
+  line-height: 1.3;
+}
+.mobile-link:hover { color: var(--primary); }
+.mobile-link--active { color: var(--primary); }
+
+.mobile-drawer-footer {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ── OVERLAY ── */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 62, 80, 0.3);
+  z-index: 240;
+  backdrop-filter: blur(2px);
+}
+
+/* ── MOBILE BREAKPOINT ── */
+@media (max-width: 768px) {
+  .nav-links  { display: none; }
+  .beta-tag   { display: none; }
+  .hamburger  { display: flex; }
+  .navbar     { padding: 18px 24px; }
+}

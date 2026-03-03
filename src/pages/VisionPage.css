@@ -1,0 +1,340 @@
+/* ─────────────────────────────────────────
+   SHAROMÉ — VISION PAGE
+   Extends App.css design system
+   Fonts & variables inherited from App.css
+───────────────────────────────────────── */
+
+.vision-page {
+  width: 100%;
+  background-color: var(--bg-color);
+  overflow-x: hidden;
+}
+
+/* ── SHARED UTILITIES ── */
+.vision-eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.vision-eyebrow.light {
+  color: var(--accent);
+  opacity: 0.8;
+}
+.vision-section-heading {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--primary);
+  line-height: 1.15;
+  margin: 0 0 30px 0;
+}
+.vision-section-heading em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* ── FADE UP ANIMATION ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────
+   1. HERO
+───────────────────────────────────────── */
+.vision-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.vision-hero-text {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+  background: var(--bg-color);
+}
+
+.vision-hero-heading {
+  font-family: var(--font-heading);
+  font-size: 5.5rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--primary);
+  margin: 0 0 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Word-by-word reveal */
+@keyframes wordReveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.word-reveal {
+  display: block;
+  opacity: 0;
+  animation: wordReveal 0.7s ease forwards;
+}
+.accent-word {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.vision-hero-sub {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: #666;
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+  max-width: 360px;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.vision-hero-line {
+  width: 50px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.vision-hero-image {
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+}
+.vision-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.03);
+  transition: transform 8s ease-out;
+}
+.vision-hero-image:hover img {
+  transform: scale(1);
+}
+.vision-image-caption {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  background: rgba(44, 62, 80, 0.45);
+  padding: 6px 14px;
+  backdrop-filter: blur(4px);
+}
+
+/* ─────────────────────────────────────────
+   2. THE WHY (dark section)
+───────────────────────────────────────── */
+.vision-why {
+  background: var(--primary);
+  padding: 120px 80px;
+  display: flex;
+  justify-content: center;
+}
+.vision-why-inner {
+  max-width: 800px;
+  text-align: center;
+}
+.vision-why-quote {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--bg-color);
+  line-height: 1.5;
+  margin: 0 0 30px 0;
+  border: none;
+  padding: 0;
+}
+.vision-why-quote em {
+  font-style: italic;
+  color: var(--accent);
+}
+.vision-why-attribution {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(165,165,141,0.6);
+}
+
+/* ─────────────────────────────────────────
+   3. THE SHAROMÉ WOMAN
+───────────────────────────────────────── */
+.vision-woman {
+  padding: 120px 80px;
+  background: var(--bg-color);
+}
+.vision-woman-header {
+  margin-bottom: 70px;
+}
+.vision-woman-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}
+.vision-woman-card {
+  border-top: 1px solid #e0dbd2;
+  padding-top: 30px;
+}
+.woman-card-number {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: #e0dbd2;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.vision-woman-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--primary);
+  margin: 0 0 14px 0;
+}
+.vision-woman-card p {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ─────────────────────────────────────────
+   4. WHAT MAKES IT DIFFERENT
+───────────────────────────────────────── */
+.vision-difference {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  padding: 120px 80px;
+  background: #f5f2ec; /* slightly deeper warm white for contrast */
+  border-top: 1px solid #e8e3da;
+}
+.vision-difference-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.vision-difference-body {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.9;
+  margin-bottom: 40px;
+  max-width: 420px;
+  font-weight: 300;
+}
+.vision-cta-btn {
+  display: inline-block;
+  padding: 16px 36px;
+  background: var(--primary);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.3s;
+  align-self: flex-start;
+}
+.vision-cta-btn:hover {
+  background: #1a252f;
+}
+
+.vision-difference-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+}
+.vision-pillar {
+  border-bottom: 1px solid #e0dbd2;
+  padding: 30px 0;
+}
+.vision-pillar:first-child {
+  border-top: 1px solid #e0dbd2;
+}
+.pillar-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.vision-pillar p {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* ─────────────────────────────────────────
+   MOBILE
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .vision-hero {
+    flex-direction: column;
+    min-height: auto;
+  }
+  .vision-hero-text {
+    width: 100%;
+    padding: 50px 24px 40px;
+  }
+  .vision-hero-heading {
+    font-size: 3.8rem;
+  }
+  .vision-hero-image {
+    width: 100%;
+    height: 55vw;
+    min-height: 300px;
+  }
+
+  .vision-why {
+    padding: 80px 24px;
+  }
+  .vision-why-quote {
+    font-size: 1.6rem;
+  }
+
+  .vision-woman {
+    padding: 80px 24px;
+  }
+  .vision-woman-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .vision-section-heading {
+    font-size: 2.2rem;
+  }
+
+  .vision-difference {
+    grid-template-columns: 1fr;
+    padding: 80px 24px;
+    gap: 50px;
+  }
+}

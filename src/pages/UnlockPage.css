@@ -1,0 +1,154 @@
+/* ─────────────────────────────────────────
+   SHAROMÉ — UNLOCK PAGE
+───────────────────────────────────────── */
+
+.unlock-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-color);
+  overflow: hidden;
+}
+
+/* ── WALLPAPER ── */
+.unlock-wallpaper {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%) brightness(1.2) opacity(0.07);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── CONTENT ── */
+.unlock-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.unlock-inner {
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── WORDMARK ── */
+.unlock-wordmark {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 2px;
+  color: var(--primary);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+/* ── EYEBROW ── */
+.unlock-eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 48px;
+}
+
+/* ── FORM ── */
+.unlock-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.unlock-input {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  letter-spacing: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--primary);
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color 0.3s;
+  margin-bottom: 0;
+}
+.unlock-input:focus {
+  outline: none;
+  border-bottom-color: var(--primary);
+}
+.unlock-input::placeholder {
+  letter-spacing: 2px;
+  text-transform: none;
+  color: #bbb;
+  font-size: 0.8rem;
+}
+
+/* ── ERROR ── */
+.unlock-error {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: #c0392b;
+  letter-spacing: 1px;
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+
+/* ── BUTTON ── */
+.unlock-btn {
+  margin-top: 28px;
+  padding: 14px 48px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s, opacity 0.3s;
+}
+.unlock-btn:hover { background: #1a252f; }
+.unlock-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── HINT ── */
+.unlock-hint {
+  margin-top: 32px;
+  font-size: 0.7rem;
+  color: #aaa;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+.unlock-hint a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.unlock-hint a:hover {
+  border-bottom-color: var(--accent);
+}

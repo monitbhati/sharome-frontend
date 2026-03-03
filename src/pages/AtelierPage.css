@@ -1,0 +1,378 @@
+/* ─────────────────────────────────────────
+   SHAROMÉ — ATELIER PAGE
+───────────────────────────────────────── */
+
+.atelier-page {
+  width: 100%;
+  background: var(--bg-color);
+  min-height: 100vh;
+}
+
+/* ── SHARED EYEBROW ── */
+.atelier-eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+.atelier-hero {
+  padding: 100px 60px 80px;
+  background: var(--bg-color);
+  border-bottom: 1px solid #e8e3da;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.atelier-hero-heading {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  font-weight: 300;
+  color: var(--primary);
+  line-height: 1;
+  margin: 0 0 24px 0;
+}
+.atelier-hero-heading em {
+  font-style: italic;
+  color: var(--accent);
+}
+.atelier-hero-sub {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.8;
+  max-width: 480px;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+.atelier-hero-divider {
+  width: 50px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* ─────────────────────────────────────────
+   FORM SECTION
+───────────────────────────────────────── */
+.atelier-form-section {
+  padding: 80px 60px;
+  background: white;
+}
+.atelier-form-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.atelier-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── FORM BLOCKS ── */
+.form-block {
+  padding: 50px 0;
+  border-bottom: 1px solid #eee;
+}
+.form-block:last-of-type {
+  border-bottom: none;
+}
+.form-block-label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-weight: 500;
+  margin-bottom: 36px;
+}
+
+/* ── INPUTS (inherit from App.css) ── */
+.input-row {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+.input-group {
+  flex: 1;
+  margin-bottom: 30px;
+  position: relative;
+}
+input, select, textarea {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: transparent;
+  color: var(--primary);
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color 0.2s;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-bottom: 1px solid var(--primary);
+}
+label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* ─────────────────────────────────────────
+   VISION UPLOAD
+───────────────────────────────────────── */
+.vision-upload {
+  position: relative;
+  border: 1.5px dashed #d0cbc3;
+  padding: 60px 40px;
+  text-align: center;
+  cursor: pointer;
+  background: #fdfaf7;
+  overflow: hidden;
+  transition: border-color 0.3s, background 0.3s;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vision-upload:hover {
+  border-color: var(--accent);
+  background: #faf7f2;
+}
+.vision-upload--dragover {
+  border-color: var(--primary);
+  border-style: solid;
+  background: #f0f4f8;
+}
+.vision-upload--filled {
+  border-style: solid;
+  border-color: var(--primary);
+}
+
+/* Background image preview */
+.upload-bg-preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  z-index: 0;
+}
+
+/* Dark overlay when filled */
+.upload-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(253, 251, 247, 0.55);
+  z-index: 1;
+}
+
+/* Content sits above overlay */
+.upload-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.upload-icon {
+  color: #bbb;
+  margin-bottom: 4px;
+  transition: color 0.3s;
+}
+.vision-upload:hover .upload-icon { color: var(--accent); }
+.vision-upload--dragover .upload-icon { color: var(--primary); }
+
+.upload-title {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--primary);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+.upload-hint {
+  font-size: 0.7rem;
+  color: #aaa;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+.upload-browse {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.65rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--primary);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 2px;
+  font-weight: 500;
+}
+
+/* Filled state */
+.upload-check {
+  font-size: 1.8rem;
+  color: var(--accent);
+  line-height: 1;
+}
+.upload-status {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--primary);
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin: 0;
+}
+.upload-change {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #aaa;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ── SUBMIT ── */
+.submit-btn {
+  width: 100%;
+  padding: 20px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: 40px;
+  transition: background 0.3s;
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+.submit-btn:hover { background: #1a252f; }
+.submit-btn:disabled { background: #ccc; cursor: not-allowed; }
+
+.form-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #aaa;
+  margin-top: 20px;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────
+   CONFIRMATION SCREEN
+───────────────────────────────────────── */
+.atelier-confirmation {
+  text-align: center;
+  padding: 60px 20px;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.confirmation-mark {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 20px;
+  line-height: 1;
+}
+.confirmation-heading {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--primary);
+  margin: 0 0 20px 0;
+}
+.confirmation-line {
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+  margin: 0 auto 24px;
+}
+.confirmation-name {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+.confirmation-sub {
+  font-size: 0.9rem;
+  color: #888;
+  line-height: 1.7;
+  margin-bottom: 50px;
+}
+.confirmation-sub strong {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* Confirmation steps */
+.confirmation-steps {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.conf-step {
+  flex: 1;
+  text-align: center;
+  padding: 24px 10px;
+  border-top: 2px solid #eee;
+  position: relative;
+}
+.conf-step--done { border-top-color: var(--accent); }
+.conf-step--next { border-top-color: var(--primary); }
+.conf-step-number {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: #ddd;
+  margin-bottom: 6px;
+  line-height: 1;
+}
+.conf-step--done .conf-step-number { color: var(--accent); }
+.conf-step--next .conf-step-number { color: var(--primary); }
+.conf-step-label {
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.conf-step-desc {
+  font-size: 0.7rem;
+  color: #aaa;
+}
+
+/* ─────────────────────────────────────────
+   MOBILE
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .atelier-hero { padding: 60px 24px 50px; }
+  .atelier-hero-heading { font-size: 3.5rem; }
+  .atelier-form-section { padding: 50px 24px; }
+  .input-row { flex-direction: column; gap: 0; margin-bottom: 0; }
+  .vision-upload { padding: 50px 24px; }
+  .confirmation-steps { flex-direction: column; }
+  .conf-step { border-top: none; border-left: 2px solid #eee; text-align: left; padding: 16px 20px; }
+  .conf-step--done { border-left-color: var(--accent); }
+  .conf-step--next { border-left-color: var(--primary); }
+}
