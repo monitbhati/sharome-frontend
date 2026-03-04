@@ -1,4 +1,6 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
+import Navbar from '../components/Navbar'
 import './VisionPage.css'
 
 function VisionPage() {
@@ -19,11 +21,7 @@ function VisionPage() {
   return (
     <div className="vision-page">
 
-      {/* NAVBAR */}
-      <nav className="navbar">
-        <div className="brand-logo">Sharomé</div>
-        <div className="beta-tag">Private Beta</div>
-      </nav>
+      <Navbar />
 
       {/* 1. HERO */}
       <section className="vision-hero">
@@ -48,7 +46,7 @@ function VisionPage() {
         </div>
       </section>
 
-      {/* 2. THE WHY — dark section */}
+      {/* 2. THE WHY */}
       <section className="vision-why">
         <div className="vision-why-inner fade-up">
           <span className="vision-eyebrow light">Why We Exist</span>
@@ -58,6 +56,17 @@ function VisionPage() {
             not made with any real care. Sharomé was built for <em>her</em>."
           </blockquote>
           <div className="vision-why-attribution">— The Sharomé Founding Belief</div>
+        </div>
+      </section>
+
+      {/* FOUNDER NOTE */}
+      <section className="vision-founder">
+        <div className="vision-founder-inner fade-up">
+          <span className="vision-eyebrow">A Note From The Founder</span>
+          <p className="vision-founder-quote">
+            "I built this after seeing people I care about fall in love with beautiful ideas — and never find them brought to life properly. That felt like a gap worth closing."
+          </p>
+          <div className="vision-founder-sig">— Sharomé, Gurugram</div>
         </div>
       </section>
 
@@ -102,11 +111,11 @@ function VisionPage() {
           </h2>
           <p className="vision-difference-body">
             Most tailors execute instructions. Most brands sell inventory.
-            Sharomé does neither. We sit with your vision — your Pinterest screenshots,
+            Sharomé does neither. We sit with your vision — your references,
             your rough sketches, your vague feeling of "I'll know it when I see it" —
             and we make it real. Entirely bespoke. Entirely yours.
           </p>
-          <a href="/" className="vision-cta-btn">Apply for Beta Access</a>
+          <Link to="/atelier" className="vision-cta-btn">Apply for Beta Access</Link>
         </div>
         <div className="vision-difference-right fade-up">
           {[
