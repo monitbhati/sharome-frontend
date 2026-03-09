@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import UnlockPage from './pages/UnlockPage'
+import HomePage from './pages/HomePage'
 import VisionPage from './pages/VisionPage'
 import AtelierPage from './pages/AtelierPage'
 import LedgerPage from './pages/LedgerPage'
@@ -19,7 +20,7 @@ function App() {
       <Route path="/unlock" element={<UnlockPage />} />
 
       {/* Protected */}
-      <Route path="/"        element={<Protected><VisionPage /></Protected>}  />
+      <Route path="/"        element={<Protected><HomePage /></Protected>}    />
       <Route path="/vision"  element={<Protected><VisionPage /></Protected>}  />
       <Route path="/atelier" element={<Protected><AtelierPage /></Protected>} />
       <Route path="/ledger"  element={<Protected><LedgerPage /></Protected>}  />

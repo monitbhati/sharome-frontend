@@ -1,16 +1,15 @@
 /* ─────────────────────────────────────────
    SHAROMÉ — VISION PAGE
-   Extends App.css design system
-   Fonts & variables inherited from App.css
 ───────────────────────────────────────── */
 
 .vision-page {
   width: 100%;
-  background-color: var(--bg-color);
+  max-width: 100vw;
   overflow-x: hidden;
+  background: var(--bg-color);
+  min-height: 100vh;
 }
 
-/* ── SHARED UTILITIES ── */
 .vision-eyebrow {
   display: block;
   font-family: var(--font-body);
@@ -21,28 +20,13 @@
   margin-bottom: 20px;
   font-weight: 500;
 }
-.vision-eyebrow.light {
-  color: var(--accent);
-  opacity: 0.8;
-}
-.vision-section-heading {
-  font-family: var(--font-heading);
-  font-size: 3rem;
-  font-weight: 300;
-  color: var(--primary);
-  line-height: 1.15;
-  margin: 0 0 30px 0;
-}
-.vision-section-heading em {
-  font-style: italic;
-  color: var(--accent);
-}
+.vision-eyebrow.light { color: rgba(253, 251, 247, 0.5); }
 
 /* ── FADE UP ANIMATION ── */
 .fade-up {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.85s ease, transform 0.85s ease;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 .fade-up.visible {
   opacity: 1;
@@ -50,118 +34,53 @@
 }
 
 /* ─────────────────────────────────────────
-   1. HERO
+   OPENING
 ───────────────────────────────────────── */
-.vision-hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
+.vision-opening {
+  padding: 100px 60px 80px;
+  border-bottom: 1px solid #e8e3da;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-
-.vision-hero-text {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px;
-  background: var(--bg-color);
-}
-
-.vision-hero-heading {
+.vision-opening-heading {
   font-family: var(--font-heading);
-  font-size: 5.5rem;
+  font-size: 5rem;
   font-weight: 300;
-  line-height: 1;
   color: var(--primary);
-  margin: 0 0 30px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  line-height: 1;
+  margin: 0 0 32px 0;
 }
-
-/* Word-by-word reveal */
-@keyframes wordReveal {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.word-reveal {
-  display: block;
-  opacity: 0;
-  animation: wordReveal 0.7s ease forwards;
-}
-.accent-word {
+.vision-opening-heading em {
+  font-style: italic;
   color: var(--accent);
-  font-style: italic;
 }
-
-.vision-hero-sub {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: #666;
-  letter-spacing: 0.5px;
-  line-height: 1.7;
-  max-width: 360px;
-  margin-bottom: 30px;
-  font-style: italic;
-}
-
-.vision-hero-line {
+.vision-opening-line {
   width: 50px;
   height: 1px;
   background: var(--accent);
 }
 
-.vision-hero-image {
-  width: 50%;
-  position: relative;
-  overflow: hidden;
-}
-.vision-hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transform: scale(1.03);
-  transition: transform 8s ease-out;
-}
-.vision-hero-image:hover img {
-  transform: scale(1);
-}
-.vision-image-caption {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  font-family: var(--font-body);
-  font-size: 0.6rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
-  background: rgba(44, 62, 80, 0.45);
-  padding: 6px 14px;
-  backdrop-filter: blur(4px);
-}
-
 /* ─────────────────────────────────────────
-   2. THE WHY (dark section)
+   WHY WE EXIST — dark
 ───────────────────────────────────────── */
 .vision-why {
   background: var(--primary);
-  padding: 120px 80px;
+  padding: 100px 60px;
   display: flex;
   justify-content: center;
 }
 .vision-why-inner {
-  max-width: 800px;
+  max-width: 720px;
   text-align: center;
 }
 .vision-why-quote {
   font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 300;
   color: var(--bg-color);
-  line-height: 1.5;
-  margin: 0 0 30px 0;
+  line-height: 1.6;
+  margin: 24px 0 28px 0;
+  font-style: normal;
   border: none;
   padding: 0;
 }
@@ -172,108 +91,141 @@
 .vision-why-attribution {
   font-family: var(--font-body);
   font-size: 0.7rem;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(165,165,141,0.6);
+  color: rgba(253, 251, 247, 0.35);
 }
 
 /* ─────────────────────────────────────────
-   3. THE SHAROMÉ WOMAN
+   FOUNDER NOTE
+───────────────────────────────────────── */
+.vision-founder {
+  padding: 100px 60px;
+  background: var(--bg-color);
+  border-bottom: 1px solid #e8e3da;
+  display: flex;
+  justify-content: center;
+}
+.vision-founder-inner {
+  max-width: 620px;
+  text-align: center;
+}
+.vision-founder-quote {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--primary);
+  line-height: 1.6;
+  margin: 24px 0 28px 0;
+  font-style: italic;
+}
+.vision-founder-sig {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ─────────────────────────────────────────
+   THE SHAROMÉ WOMAN
 ───────────────────────────────────────── */
 .vision-woman {
-  padding: 120px 80px;
-  background: var(--bg-color);
+  padding: 100px 60px;
+  background: white;
 }
 .vision-woman-header {
+  text-align: center;
   margin-bottom: 70px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.vision-section-heading {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--primary);
+  line-height: 1.3;
+  margin-top: 16px;
 }
 .vision-woman-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 50px;
+  gap: 2px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 .vision-woman-card {
-  border-top: 1px solid #e0dbd2;
-  padding-top: 30px;
+  background: var(--bg-color);
+  padding: 50px 40px;
+  border: 1px solid #e8e3da;
+  transition: border-color 0.3s;
 }
+.vision-woman-card:hover { border-color: var(--accent); }
 .woman-card-number {
   font-family: var(--font-heading);
-  font-size: 2.8rem;
+  font-size: 3rem;
   font-weight: 300;
-  color: #e0dbd2;
+  color: #e0ddd8;
   line-height: 1;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 .vision-woman-card h3 {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 400;
   color: var(--primary);
-  margin: 0 0 14px 0;
+  margin-bottom: 16px;
+  font-style: italic;
 }
 .vision-woman-card p {
-  font-family: var(--font-body);
   font-size: 0.85rem;
-  color: #666;
+  color: #777;
   line-height: 1.8;
   font-weight: 300;
 }
 
 /* ─────────────────────────────────────────
-   4. WHAT MAKES IT DIFFERENT
+   WHAT MAKES IT DIFFERENT
 ───────────────────────────────────────── */
 .vision-difference {
+  padding: 100px 60px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  padding: 120px 80px;
-  background: #f5f2ec; /* slightly deeper warm white for contrast */
-  border-top: 1px solid #e8e3da;
-}
-.vision-difference-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
 }
 .vision-difference-body {
-  font-family: var(--font-body);
   font-size: 0.9rem;
-  color: #555;
+  color: #666;
   line-height: 1.9;
-  margin-bottom: 40px;
-  max-width: 420px;
   font-weight: 300;
+  margin: 24px 0 36px 0;
+  max-width: 400px;
 }
 .vision-cta-btn {
   display: inline-block;
-  padding: 16px 36px;
+  padding: 18px 40px;
   background: var(--primary);
-  color: #fff;
+  color: white;
   font-family: var(--font-body);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   letter-spacing: 3px;
   text-transform: uppercase;
   text-decoration: none;
+  font-weight: 500;
   transition: background 0.3s;
-  align-self: flex-start;
 }
-.vision-cta-btn:hover {
-  background: #1a252f;
-}
+.vision-cta-btn:hover { background: #1a252f; }
 
-.vision-difference-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0;
-}
 .vision-pillar {
-  border-bottom: 1px solid #e0dbd2;
-  padding: 30px 0;
+  padding: 32px 0;
+  border-bottom: 1px solid #eee;
 }
-.vision-pillar:first-child {
-  border-top: 1px solid #e0dbd2;
-}
+.vision-pillar:first-child { border-top: 1px solid #eee; }
 .pillar-label {
   display: block;
   font-family: var(--font-body);
@@ -285,11 +237,9 @@
   margin-bottom: 10px;
 }
 .vision-pillar p {
-  font-family: var(--font-body);
   font-size: 0.85rem;
-  color: #666;
+  color: #888;
   line-height: 1.7;
-  margin: 0;
   font-weight: 300;
 }
 
@@ -297,44 +247,18 @@
    MOBILE
 ───────────────────────────────────────── */
 @media (max-width: 768px) {
-  .vision-hero {
-    flex-direction: column;
-    min-height: auto;
-  }
-  .vision-hero-text {
-    width: 100%;
-    padding: 50px 24px 40px;
-  }
-  .vision-hero-heading {
-    font-size: 3.8rem;
-  }
-  .vision-hero-image {
-    width: 100%;
-    height: 55vw;
-    min-height: 300px;
-  }
-
-  .vision-why {
-    padding: 80px 24px;
-  }
-  .vision-why-quote {
-    font-size: 1.6rem;
-  }
-
-  .vision-woman {
-    padding: 80px 24px;
-  }
-  .vision-woman-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .vision-section-heading {
-    font-size: 2.2rem;
-  }
-
+  .vision-opening { padding: 60px 24px 50px; }
+  .vision-opening-heading { font-size: 3.5rem; }
+  .vision-why { padding: 70px 24px; }
+  .vision-why-quote { font-size: 1.5rem; }
+  .vision-founder { padding: 70px 24px; }
+  .vision-founder-quote { font-size: 1.4rem; }
+  .vision-woman { padding: 70px 24px; }
+  .vision-woman-grid { grid-template-columns: 1fr; gap: 2px; }
+  .vision-section-heading { font-size: 1.8rem; }
   .vision-difference {
+    padding: 70px 24px;
     grid-template-columns: 1fr;
-    padding: 80px 24px;
     gap: 50px;
   }
 }
