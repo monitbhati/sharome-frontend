@@ -4,7 +4,6 @@ import HomePage from './pages/HomePage'
 import VisionPage from './pages/VisionPage'
 import AtelierPage from './pages/AtelierPage'
 import LedgerPage from './pages/LedgerPage'
-import FabricGuidePage from './pages/FabricGuidePage'
 
 const SESSION_KEY = "sharome_verified"
 
@@ -25,7 +24,6 @@ function App() {
       <Route path="/vision"       element={<Protected><VisionPage /></Protected>}     />
       <Route path="/atelier"      element={<Protected><AtelierPage /></Protected>}    />
       <Route path="/ledger"       element={<Protected><LedgerPage /></Protected>}     />
-      <Route path="/fabric-guide" element={<Protected><FabricGuidePage /></Protected>} />
 
       {/* Fallback */}
       <Route path="*" element={<Navigate to="/unlock" replace />} />
