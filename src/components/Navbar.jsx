@@ -18,6 +18,7 @@ function Navbar() {
   }, [])
 
   const links = [
+    { to: '/',        label: 'Home'    },
     { to: '/vision',  label: 'Vision'  },
     { to: '/atelier', label: 'Atelier' },
     { to: '/ledger',  label: 'Ledger'  },
