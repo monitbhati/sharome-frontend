@@ -2,8 +2,14 @@
    SHAROMÉ — ATELIER PAGE
 ───────────────────────────────────────── */
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 .atelier-page {
   width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
   background: var(--bg-color);
   min-height: 100vh;
 }
@@ -28,7 +34,9 @@
   background: var(--bg-color);
   border-bottom: 1px solid #e8e3da;
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 .atelier-hero-heading {
   font-family: var(--font-heading);
@@ -63,21 +71,27 @@
 .atelier-form-section {
   padding: 80px 60px;
   background: white;
+  width: 100%;
+  box-sizing: border-box;
 }
 .atelier-form-wrapper {
   max-width: 700px;
+  width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 .atelier-form {
   display: flex;
   flex-direction: column;
   gap: 0;
+  width: 100%;
 }
 
 /* ── FORM BLOCKS ── */
 .form-block {
   padding: 50px 0;
   border-bottom: 1px solid #eee;
+  width: 100%;
 }
 .form-block:last-of-type {
   border-bottom: none;
@@ -92,16 +106,20 @@
   margin-bottom: 36px;
 }
 
-/* ── INPUTS (inherit from App.css) ── */
+/* ── INPUTS ── */
 .input-row {
   display: flex;
   gap: 30px;
   margin-bottom: 30px;
+  width: 100%;
+  box-sizing: border-box;
 }
 .input-group {
   flex: 1;
+  min-width: 0;
   margin-bottom: 30px;
   position: relative;
+  box-sizing: border-box;
 }
 input, select, textarea {
   width: 100%;
@@ -116,6 +134,7 @@ input, select, textarea {
   -webkit-appearance: none;
   appearance: none;
   transition: border-color 0.2s;
+  box-sizing: border-box;
 }
 input:focus, select:focus, textarea:focus {
   outline: none;
@@ -147,6 +166,8 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 .vision-upload:hover {
   border-color: var(--accent);
@@ -162,7 +183,6 @@ label {
   border-color: var(--primary);
 }
 
-/* Background image preview */
 .upload-bg-preview {
   position: absolute;
   inset: 0;
@@ -172,16 +192,12 @@ label {
   opacity: 0.25;
   z-index: 0;
 }
-
-/* Dark overlay when filled */
 .upload-overlay {
   position: absolute;
   inset: 0;
   background: rgba(253, 251, 247, 0.55);
   z-index: 1;
 }
-
-/* Content sits above overlay */
 .upload-content {
   position: relative;
   z-index: 2;
@@ -223,8 +239,6 @@ label {
   padding-bottom: 2px;
   font-weight: 500;
 }
-
-/* Filled state */
 .upload-check {
   font-size: 1.8rem;
   color: var(--accent);
@@ -262,6 +276,7 @@ label {
   transition: background 0.3s;
   font-family: var(--font-body);
   font-weight: 400;
+  box-sizing: border-box;
 }
 .submit-btn:hover { background: #1a252f; }
 .submit-btn:disabled { background: #ccc; cursor: not-allowed; }
@@ -286,6 +301,7 @@ label {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 .confirmation-mark {
   font-size: 2.5rem;
@@ -322,20 +338,22 @@ label {
   font-weight: 500;
 }
 
-/* Confirmation steps */
 .confirmation-steps {
   display: flex;
   gap: 0;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 .conf-step {
   flex: 1;
+  min-width: 0;
   text-align: center;
   padding: 24px 10px;
   border-top: 2px solid #eee;
   position: relative;
+  box-sizing: border-box;
 }
 .conf-step--done { border-top-color: var(--accent); }
 .conf-step--next { border-top-color: var(--primary); }
@@ -367,12 +385,18 @@ label {
 ───────────────────────────────────────── */
 @media (max-width: 768px) {
   .atelier-hero { padding: 60px 24px 50px; }
-  .atelier-hero-heading { font-size: 3.5rem; }
-  .atelier-form-section { padding: 50px 24px; }
+  .atelier-hero-heading { font-size: 3.2rem; }
+  .atelier-form-section { padding: 40px 24px; }
   .input-row { flex-direction: column; gap: 0; margin-bottom: 0; }
-  .vision-upload { padding: 50px 24px; }
+  .input-group { min-width: unset; }
+  .vision-upload { padding: 40px 20px; }
   .confirmation-steps { flex-direction: column; }
-  .conf-step { border-top: none; border-left: 2px solid #eee; text-align: left; padding: 16px 20px; }
+  .conf-step {
+    border-top: none;
+    border-left: 2px solid #eee;
+    text-align: left;
+    padding: 16px 20px;
+  }
   .conf-step--done { border-left-color: var(--accent); }
   .conf-step--next { border-left-color: var(--primary); }
 }
