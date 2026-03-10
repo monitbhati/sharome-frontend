@@ -61,7 +61,10 @@ function HomePage() {
           "Fashion shouldn't just fit your body.<br />
           It should fit your <em>soul.</em>"
         </p>
-        <Link to="/vision" className="home-strip-link">Our Story →</Link>
+        <div className="home-strip-actions">
+          <Link to="/atelier" className="home-btn-primary">Request a Commission</Link>
+          <Link to="/vision" className="home-strip-link">Our Story →</Link>
+        </div>
       </section>
 
       {/* ── FOOTER ── */}

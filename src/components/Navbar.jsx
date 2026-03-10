@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import './Navbar.css'
@@ -18,7 +19,6 @@ function Navbar() {
   }, [])
 
   const links = [
-    { to: '/',        label: 'Home'    },
     { to: '/vision',  label: 'Vision'  },
     { to: '/atelier', label: 'Atelier' },
     { to: '/ledger',  label: 'Ledger'  },
