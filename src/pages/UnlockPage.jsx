@@ -51,7 +51,7 @@ function UnlockPage() {
 
     // Small pause for feel, then navigate
     setTimeout(() => {
-      navigate('/vision', { replace: true })
+      navigate('/', { replace: true })
     }, 600)
   }
 
