@@ -4,49 +4,62 @@ import Navbar from '../components/Navbar'
 import './VisionPage.css'
 
 function VisionPage() {
-  useEffect(() => { document.title = "Sharomé | Our Story" }, [])
+  useEffect(() => { document.title = "Sharomé | Vision"; }, []);
 
-  const observerRef = useRef(null)
+  const observerRef = useRef(null);
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
       (entries) => entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible')
+        if (e.isIntersecting) e.target.classList.add('visible');
       }),
-      { threshold: 0.12 }
-    )
-    document.querySelectorAll('.fade-up').forEach(el => observerRef.current.observe(el))
-    return () => observerRef.current?.disconnect()
-  }, [])
+      { threshold: 0.15 }
+    );
+    document.querySelectorAll('.fade-up').forEach(el => observerRef.current.observe(el));
+    return () => observerRef.current?.disconnect();
+  }, []);
 
   return (
     <div className="vision-page">
+
       <Navbar />
 
-      {/* ── OPENING ── */}
-      <section className="vision-opening">
-        <div className="vision-opening-inner fade-up">
+      {/* 1. HERO */}
+      <section className="vision-hero">
+        <div className="vision-hero-text">
           <span className="vision-eyebrow">The Vision</span>
-          <h1 className="vision-opening-heading">
-            Our <em>Story.</em>
+          <h1 className="vision-hero-heading">
+            <span className="word-reveal" style={{ animationDelay: '0.1s' }}>Modern.</span>
+            <span className="word-reveal" style={{ animationDelay: '0.35s' }}>Bespoke.</span>
+            <span className="word-reveal accent-word" style={{ animationDelay: '0.6s' }}>Yours.</span>
           </h1>
-          <div className="vision-opening-line"></div>
+          <p className="vision-hero-sub fade-up">
+            The new language of Indian ethnic wear — written entirely in your voice.
+          </p>
+          <div className="vision-hero-line fade-up"></div>
+        </div>
+        <div className="vision-hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=900&auto=format&fit=crop"
+            alt="Sharomé Editorial"
+          />
+          <div className="vision-image-caption">SS '26 — Bespoke Commission</div>
         </div>
       </section>
 
-      {/* ── WHY WE EXIST ── */}
+      {/* 2. THE WHY */}
       <section className="vision-why">
         <div className="vision-why-inner fade-up">
           <span className="vision-eyebrow light">Why We Exist</span>
           <blockquote className="vision-why-quote">
             "There are millions of women in India with a Pinterest board full of outfits
             they love but can never find — not in the right fit, not in the right fabric,
-            not made with any real care. Sharomé was built for <em>her.</em>"
+            not made with any real care. Sharomé was built for <em>her</em>."
           </blockquote>
           <div className="vision-why-attribution">— The Sharomé Founding Belief</div>
         </div>
       </section>
 
-      {/* ── FOUNDER NOTE ── */}
+      {/* FOUNDER NOTE */}
       <section className="vision-founder">
         <div className="vision-founder-inner fade-up">
           <span className="vision-eyebrow">A Note From The Founder</span>
@@ -57,13 +70,12 @@ function VisionPage() {
         </div>
       </section>
 
-      {/* ── THE SHAROMÉ WOMAN ── */}
+      {/* 3. THE SHAROMÉ WOMAN */}
       <section className="vision-woman">
         <div className="vision-woman-header fade-up">
           <span className="vision-eyebrow">The Sharomé Woman</span>
           <h2 className="vision-section-heading">
-            She already knows what she wants.<br />
-            She just hasn't found anyone who can make it.
+            She already knows what she wants.<br />She just hasn't found anyone who can make it.
           </h2>
         </div>
         <div className="vision-woman-grid">
@@ -90,7 +102,7 @@ function VisionPage() {
         </div>
       </section>
 
-      {/* ── WHAT MAKES IT DIFFERENT ── */}
+      {/* 4. WHAT MAKES IT DIFFERENT */}
       <section className="vision-difference">
         <div className="vision-difference-left fade-up">
           <span className="vision-eyebrow">What Makes Sharomé Different</span>
@@ -103,7 +115,7 @@ function VisionPage() {
             your rough sketches, your vague feeling of "I'll know it when I see it" —
             and we make it real. Entirely bespoke. Entirely yours.
           </p>
-          <Link to="/atelier" className="vision-cta-btn">Request a Commission</Link>
+          <Link to="/atelier" className="vision-cta-btn">Apply for Beta Access</Link>
         </div>
         <div className="vision-difference-right fade-up">
           {[
