@@ -103,7 +103,7 @@ function VisionPage() {
             your rough sketches, your vague feeling of "I'll know it when I see it" —
             and we make it real. Entirely bespoke. Entirely yours.
           </p>
-          <Link to="/atelier" className="vision-cta-btn">Request a Commission</Link>
+          <Link to="/store/atelier" className="vision-cta-btn">Request a Commission</Link>
         </div>
         <div className="vision-difference-right fade-up">
           {[

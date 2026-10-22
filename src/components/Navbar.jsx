@@ -18,17 +18,17 @@ function Navbar() {
   }, [])
 
   const links = [
-    { to: '/',        label: 'Home'    },
-    { to: '/vision',  label: 'Vision'  },
-    { to: '/atelier', label: 'Atelier' },
-    { to: '/ledger',  label: 'Ledger'  },
+    { to: '/store',         label: 'Home'    },
+    { to: '/store/vision',  label: 'Vision'  },
+    { to: '/store/atelier', label: 'Atelier' },
+    { to: '/store/ledger',  label: 'Ledger'  },
   ]
 
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
 
       {/* BRAND */}
-      <Link to="/" className="brand-logo">Sharomé</Link>
+      <Link to="/store" className="brand-logo">Sharomé</Link>
 
       {/* DESKTOP LINKS */}
       <ul className="nav-links">

@@ -19,7 +19,7 @@ function UnlockPage() {
   // If already verified this session, skip straight to vision
   useEffect(() => {
     if (sessionStorage.getItem(SESSION_KEY) === 'true') {
-      navigate('/', { replace: true })
+      navigate('/store', { replace: true })
     }
   }, [navigate])
 
@@ -51,7 +51,7 @@ function UnlockPage() {
 
     // Small pause for feel, then navigate
     setTimeout(() => {
-      navigate('/', { replace: true })
+      navigate('/store', { replace: true })
     }, 600)
   }
 

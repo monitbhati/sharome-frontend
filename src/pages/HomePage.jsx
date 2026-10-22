@@ -32,7 +32,7 @@ function HomePage() {
             <span className="home-word home-word--accent" style={{ animationDelay: '0.6s' }}>Yours.</span>
           </h1>
           <div className="home-hero-line"></div>
-          <Link to="/atelier" className="home-btn-primary">Request a Commission</Link>
+          <Link to="/store/atelier" className="home-btn-primary">Request a Commission</Link>
         </div>
 
       </section>
@@ -62,8 +62,8 @@ function HomePage() {
           It should fit your <em>soul.</em>"
         </p>
         <div className="home-strip-actions">
-          <Link to="/atelier" className="home-btn-primary">Request a Commission</Link>
-          <Link to="/vision" className="home-strip-link">Our Story →</Link>
+          <Link to="/store/atelier" className="home-btn-primary">Request a Commission</Link>
+          <Link to="/store/vision" className="home-strip-link">Our Story →</Link>
         </div>
       </section>
 
