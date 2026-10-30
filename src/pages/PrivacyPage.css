@@ -1,28 +1,8 @@
 /* ─────────────────────────────────────────
-   SHAROME — PRIVACY POLICY (navy + teal brand)
+   SHAROME — PRIVACY POLICY body (header and footer come from SiteLayout)
 ───────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Work+Sans:wght@400;500&display=swap');
-
-.privacy-page {
-  --navy: #0E1B2C; --teal: #2EC4B6; --teal-ink: #0F7F75;
-  --ink: #142235; --muted: #56657A; --line: #DDE4EC; --on-dark: #F6F8FA; --on-dark-muted: #A9B6C6;
-  width: 100%; min-height: 100vh; display: flex; flex-direction: column;
-  background: #FFFFFF; color: var(--ink);
-  font-family: 'Work Sans', 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.7;
-}
-
-.privacy-band { background: var(--navy); width: 100%; }
-.privacy-header {
-  max-width: 820px; margin: 0 auto; padding: 24px 20px;
-  display: flex; justify-content: space-between; align-items: center; gap: 16px;
-}
-.privacy-logo { color: var(--on-dark); display: inline-flex; }
-.privacy-logo svg { height: 26px; width: auto; display: block; }
-.privacy-back { font-size: 0.9rem; color: var(--on-dark-muted); text-decoration: none; }
-.privacy-back:hover { color: var(--on-dark); }
-
-.privacy-body { width: 100%; max-width: 820px; margin: 0 auto; padding: 56px 20px 80px; flex: 1; }
-.privacy-body h1, .privacy-body h2, .privacy-body h3 { font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif; color: var(--ink); }
+.privacy-body { width: 100%; max-width: 820px; margin: 0 auto; padding: 56px 20px 88px; line-height: 1.7; }
+.privacy-body h1, .privacy-body h2, .privacy-body h3 { font-family: var(--font-head); color: var(--ink); }
 .privacy-body h1 { font-size: clamp(2rem, 5vw, 2.6rem); font-weight: 700; line-height: 1.15; }
 .privacy-meta { color: var(--muted); font-size: 0.9rem; margin: 6px 0 32px; }
 .privacy-body h2 { font-size: 1.35rem; font-weight: 700; margin: 44px 0 12px; padding-top: 20px; border-top: 1px solid var(--line); }
@@ -32,11 +12,4 @@
 .privacy-body li { margin-bottom: 8px; }
 .privacy-body li::marker { color: var(--teal-ink); }
 .privacy-body a { color: var(--teal-ink); text-decoration: underline; text-underline-offset: 3px; word-break: break-word; }
-
-.privacy-footer { background: var(--navy); color: var(--on-dark-muted); text-align: center; padding: 26px 20px; font-size: 0.85rem; }
-.privacy-page :focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 4px; }
-
-@media (max-width: 520px) {
-  .privacy-header { flex-wrap: wrap; }
-  .privacy-body { padding-top: 40px; }
-}
+@media (max-width: 520px) { .privacy-body { padding-top: 40px; } }

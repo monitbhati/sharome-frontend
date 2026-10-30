@@ -1,28 +1,15 @@
-import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { Wordmark } from '../components/SharomeLogo'
+import { usePageTitle } from '../site/usePageTitle'
 import './PrivacyPage.css'
 
 const CONTACT_EMAIL = "contact@sharome.in"
 const EFFECTIVE_DATE = "22 October 2026"
 
 function PrivacyPage() {
-  useEffect(() => {
-    document.title = "Privacy Policy | SHAROME"
-    window.scrollTo(0, 0)
-  }, [])
+  usePageTitle('Privacy Policy')
 
   return (
-    <div className="privacy-page">
-
-      <div className="privacy-band">
-        <header className="privacy-header">
-          <Link to="/" className="privacy-logo" aria-label="SHAROME home"><Wordmark /></Link>
-          <Link to="/" className="privacy-back">← Back to home</Link>
-        </header>
-      </div>
-
-      <main className="privacy-body">
+    <>
+      <div className="privacy-body">
         <h1>Privacy Policy</h1>
         <p className="privacy-meta">Effective date: {EFFECTIVE_DATE}</p>
 
@@ -125,13 +112,8 @@ function PrivacyPage() {
           SHAROME · Jhajjar, Haryana, India<br />
           Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
         </p>
-      </main>
-
-      <footer className="privacy-footer">
-        <p>© {new Date().getFullYear()} SHAROME</p>
-      </footer>
-
-    </div>
+      </div>
+    </>
   )
 }
 
