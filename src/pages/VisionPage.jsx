@@ -134,23 +134,13 @@ function VisionPage() {
           </div>
           <div className="footer-col">
             <h5>Contact</h5>
-            <ul><li>+91 9266390099</li><li>Gurugram, India</li></ul>
+            <ul><li>contact@sharome.in</li><li>Gurugram, India</li></ul>
           </div>
         </div>
         <div style={{ textAlign: 'center', marginTop: '60px', color: '#555', fontSize: '0.8rem', borderTop: '1px solid #333', paddingTop: '20px' }}>
           © 2025 Sharomé Clothing. All Rights Reserved.
         </div>
       </footer>
-
-      <a
-        href="https://wa.me/919266390099?text=Hi%20Sharome,%20I%20would%20like%20to%20inquire%20about%20the%20beta%20program."
-        className="whatsapp-float" target="_blank" rel="noopener noreferrer"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z" />
-        </svg>
-        with us
-      </a>
     </div>
   )
 }

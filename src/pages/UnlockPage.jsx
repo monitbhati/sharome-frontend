@@ -94,7 +94,7 @@ function UnlockPage() {
           </form>
 
           <p className="unlock-hint">
-            By invitation only. No code? <a href="https://wa.me/919266390099" target="_blank" rel="noopener noreferrer">Request access</a>
+            By invitation only. No code? <a href="mailto:contact@sharome.in?subject=Sharom%C3%A9%20invite%20request">Request access</a>
           </p>
         </div>
 

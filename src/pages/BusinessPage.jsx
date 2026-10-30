@@ -4,7 +4,6 @@ import { Wordmark } from '../components/SharomeLogo'
 import './BusinessPage.css'
 
 const CONTACT_EMAIL = "contact@sharome.in"
-const WHATSAPP_LINK = "https://wa.me/919266390099?text=Hi%20SHAROME,%20I%20would%20like%20to%20discuss%20a%20project."
 
 const WORK = [
   {
@@ -166,7 +165,6 @@ function BusinessPage() {
           </div>
           <ul className="sh-contact-list">
             <li><span>Email</span><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></li>
-            <li><span>WhatsApp</span><a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">+91 92663 90099</a></li>
             <li><span>Location</span><p>Jhajjar, Haryana, India</p></li>
           </ul>
         </div>
