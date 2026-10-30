@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Wordmark } from '../components/SharomeLogo'
 import './PrivacyPage.css'
 
 const CONTACT_EMAIL = "contact@sharome.in"
@@ -14,10 +15,12 @@ function PrivacyPage() {
   return (
     <div className="privacy-page">
 
-      <header className="privacy-header">
-        <Link to="/" className="privacy-logo">SHAROME</Link>
-        <Link to="/" className="privacy-back">← Back to home</Link>
-      </header>
+      <div className="privacy-band">
+        <header className="privacy-header">
+          <Link to="/" className="privacy-logo" aria-label="SHAROME home"><Wordmark /></Link>
+          <Link to="/" className="privacy-back">← Back to home</Link>
+        </header>
+      </div>
 
       <main className="privacy-body">
         <h1>Privacy Policy</h1>
