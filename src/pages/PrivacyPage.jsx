@@ -104,7 +104,7 @@ function PrivacyPage() {
 
         <h2>6. Changes to this policy</h2>
         <p>
-          If we change this policy, we will update it on this page and change the effective date above.
+          If we change this policy, we will update it on this page and change the effective date above. 
         </p>
 
         <h2>7. Contact</h2>
