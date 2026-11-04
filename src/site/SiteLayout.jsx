@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { Wordmark } from '../components/SharomeLogo'
 import { CONTACT_EMAIL, LOCATION, SERVICES } from './data'
+import { SplitWords } from './motion'
+import { useSiteMotion } from './useSiteMotion'
 import './site.css'
 
 const NAV = [
@@ -11,47 +13,56 @@ const NAV = [
   { to: '/about', label: 'About' },
 ]
 
-/* Navy title band used at the top of every inner page. */
+/* Small arrow that slides on hover inside buttons and links. */
+export const Arrow = () => <span className="sh-arrow" aria-hidden="true">→</span>
+
+/* Dark title band at the top of every inner page. Wrap a word in *asterisks* for the italic accent. */
 export function PageHero({ eyebrow, title, lead, children }) {
   return (
-    <section className="sh-dark">
+    <section className="sh-dark sh-hero-band">
+      <div className="sh-glow sh-parallax" style={{ '--speed': 0.12 }} aria-hidden="true" />
+      <div className="sh-grid-lines" aria-hidden="true" />
       <div className="sh-wrap sh-pagehero">
-        {eyebrow && <p className="sh-eyebrow">{eyebrow}</p>}
-        <h1>{title}</h1>
-        {lead && <p className="sh-lead">{lead}</p>}
-        {children}
+        {eyebrow && <p className="sh-eyebrow sh-fade-in">{eyebrow}</p>}
+        <SplitWords text={title} />
+        {lead && <p className="sh-lead sh-fade-in" style={{ '--i': 6 }}>{lead}</p>}
+        {children && <div className="sh-fade-in" style={{ '--i': 8 }}>{children}</div>}
       </div>
     </section>
   )
 }
 
 /* Closing call to action, shown above the footer on most pages. */
-export function CtaBand({ title = 'Tell us what is slowing your team down.', body = 'Send a few lines about your project and we will set up a short call.' }) {
+export function CtaBand({ title = 'Tell us what is *slowing* your team down.', body = 'Send a few lines about your project and we will set up a short call.' }) {
   return (
     <section className="sh-cta">
       <div className="sh-wrap sh-cta-inner">
-        <div>
-          <h2>{title}</h2>
+        <h2 data-reveal className="sh-cta-title">
+          {title.split(' ').map((w, i) => (
+            <span key={i} className={w.startsWith('*') ? 'sh-accent' : undefined}>{w.replace(/\*/g, '')}{' '}</span>
+          ))}
+        </h2>
+        <div data-reveal style={{ '--d': 2 }}>
           <p>{body}</p>
-        </div>
-        <div className="sh-actions">
-          <Link to="/contact" className="sh-btn">Start a project</Link>
-          <a href={`mailto:${CONTACT_EMAIL}`} className="sh-btn sh-btn--ghost">{CONTACT_EMAIL}</a>
+          <div className="sh-actions">
+            <Link to="/contact" className="sh-btn">Start a project <Arrow /></Link>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="sh-btn sh-btn--ghost-light">{CONTACT_EMAIL}</a>
+          </div>
         </div>
       </div>
     </section>
   )
 }
 
-/* Project card used on Home and Work. */
-export function WorkCard({ w, to }) {
+/* Project card used on Home. */
+export function WorkCard({ w, to, i = 0 }) {
   return (
-    <article className="sh-card">
+    <article className="sh-card sh-spot" data-reveal style={{ '--d': i }}>
       <p className="sh-card-kicker">{w.client}</p>
       <h3>{w.kind}</h3>
       <p>{w.summary}</p>
       <ul className="sh-tags">{w.tags.map(t => <li key={t}>{t}</li>)}</ul>
-      {to && <Link to={to} className="sh-link">Read the case study →</Link>}
+      {to && <Link to={to} className="sh-link">Read the case study <Arrow /></Link>}
     </article>
   )
 }
@@ -59,6 +70,7 @@ export function WorkCard({ w, to }) {
 export default function SiteLayout() {
   const { pathname, hash } = useLocation()
   const [open, setOpen] = useState(false)
+  const scrolled = useSiteMotion(pathname)
 
   useEffect(() => {
     if (hash) {
@@ -69,9 +81,9 @@ export default function SiteLayout() {
   }, [pathname, hash])
 
   return (
-    <div className="sh">
+    <div className={`sh${open ? ' sh--menu-open' : ''}`}>
       <a href="#main" className="sh-skip">Skip to content</a>
-      <div className="sh-dark sh-topbar">
+      <div className={`sh-topbar${scrolled ? ' is-scrolled' : ''}`}>
         <header className="sh-wrap sh-header">
           <Link to="/" className="sh-logo" aria-label="SHAROME home"><Wordmark /></Link>
           <button
@@ -82,24 +94,28 @@ export default function SiteLayout() {
             <span className="sh-visually-hidden">Menu</span>
           </button>
           <nav id="sh-nav" className={`sh-nav${open ? ' is-open' : ''}`} aria-label="Main" onClick={() => setOpen(false)}>
-            {NAV.map(n => <NavLink key={n.to} to={n.to}>{n.label}</NavLink>)}
-            <NavLink to="/contact" className="sh-nav-cta">Contact</NavLink>
+            {NAV.map((n, i) => <NavLink key={n.to} to={n.to} style={{ '--i': i }}>{n.label}</NavLink>)}
+            <NavLink to="/contact" className="sh-nav-cta" style={{ '--i': NAV.length }}>Contact</NavLink>
           </nav>
         </header>
       </div>
 
       <main id="main">
-        <Outlet />
+        <div className="sh-page" key={pathname}>
+          <Outlet />
+        </div>
       </main>
 
       <footer className="sh-dark sh-sitefooter">
+        <div className="sh-wrap sh-footer-big" aria-hidden="true">
+          <Wordmark className="sh-footer-wordmark" />
+        </div>
         <div className="sh-wrap sh-footer-grid">
           <div className="sh-footer-brand">
-            <Wordmark className="sh-footer-logo" />
-            <p>A small software studio in Haryana, India, building tools for market research teams, growing businesses and creators.</p>
+            <p>SHAROME builds tools for market research teams, growing businesses and creators, from Haryana, India.</p>
           </div>
           <div>
-            <h4>Studio</h4>
+            <h4>Company</h4>
             <ul>
               <li><Link to="/work">Work</Link></li>
               <li><Link to="/about">About</Link></li>
@@ -125,6 +141,7 @@ export default function SiteLayout() {
         </div>
         <div className="sh-wrap sh-footer">
           <p>© {new Date().getFullYear()} SHAROME · MSME registered sole proprietorship, Haryana, India</p>
+          <a href="#main" className="sh-totop">Back to top ↑</a>
         </div>
       </footer>
     </div>

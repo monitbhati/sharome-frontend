@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { usePageTitle } from './usePageTitle'
-import { PageHero, CtaBand } from './SiteLayout'
+import { Arrow, PageHero, CtaBand } from './SiteLayout'
 import { WORK } from './data'
 
 export default function WorkPage() {
@@ -10,19 +10,19 @@ export default function WorkPage() {
     <>
       <PageHero
         eyebrow="Our work"
-        title="Projects for clients, and products of our own."
+        title="Projects for clients, and products of our *own.*"
         lead="Client names are kept private unless they have agreed to be named. Ask us for a walkthrough of any project on a call."
       />
 
       <section className="sh-section">
         <div className="sh-wrap">
-          <nav className="sh-jump" aria-label="Projects on this page">
+          <nav className="sh-jump" aria-label="Projects on this page" data-reveal>
             {WORK.map(w => <a key={w.id} href={`#${w.id}`}>{w.kind}</a>)}
           </nav>
 
           <div className="sh-cases">
             {WORK.map((w, i) => (
-              <article id={w.id} className="sh-case" key={w.id}>
+              <article id={w.id} className="sh-case" key={w.id} data-reveal>
                 <header className="sh-case-head">
                   <span className="sh-case-num">{String(i + 1).padStart(2, '0')}</span>
                   <div>
@@ -38,7 +38,7 @@ export default function WorkPage() {
                 </div>
                 <footer className="sh-case-foot">
                   <ul className="sh-tags">{w.tags.map(t => <li key={t}>{t}</li>)}</ul>
-                  {w.link && <Link to={w.link.to} className="sh-link">{w.link.label} →</Link>}
+                  {w.link && <Link to={w.link.to} className="sh-link">{w.link.label} <Arrow /></Link>}
                 </footer>
               </article>
             ))}

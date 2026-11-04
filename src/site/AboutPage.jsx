@@ -18,16 +18,16 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About SHAROME"
-        title="A small studio that builds the tools businesses run on."
-        lead="SHAROME is a software studio in Haryana, India. We build custom tools for market research agencies and growing businesses, publish our own Android apps, and manage influencer accounts."
+        title="A small team that builds the tools businesses *run* on."
+        lead="SHAROME builds custom tools for market research agencies and growing businesses, publishes its own Android apps, and manages influencer accounts. Based in Haryana, India."
       />
 
       <section className="sh-section">
         <div className="sh-wrap sh-split sh-split--top">
-          <div>
-            <h2>Why we started</h2>
+          <div data-reveal>
+            <h2>Why we <span className="sh-accent">started</span></h2>
           </div>
-          <div className="sh-prose">
+          <div className="sh-prose" data-reveal style={{ '--d': 1 }}>
             <p>
               Most small teams run on spreadsheets, WhatsApp groups and software they rent but cannot
               change. It works until the business grows, and then a lot of time goes into chasing
@@ -47,7 +47,7 @@ export default function AboutPage() {
       </section>
 
       <section className="sh-section sh-section--tint">
-        <div className="sh-wrap sh-founder">
+        <div className="sh-wrap sh-founder" data-reveal>
           <div className="sh-founder-mark" aria-hidden="true">M</div>
           <div>
             <p className="sh-label">Founder</p>
@@ -64,10 +64,10 @@ export default function AboutPage() {
 
       <section className="sh-section">
         <div className="sh-wrap">
-          <h2>How we work</h2>
+          <h2 data-reveal>How we <span className="sh-accent">work</span></h2>
           <div className="sh-principles">
-            {PRINCIPLES.map(p => (
-              <div key={p.title}>
+            {PRINCIPLES.map((p, i) => (
+              <div key={p.title} data-reveal style={{ '--d': i % 3 }}>
                 <h3>{p.title}</h3>
                 <p>{p.body}</p>
               </div>
@@ -78,16 +78,16 @@ export default function AboutPage() {
 
       <section className="sh-section sh-section--tint">
         <div className="sh-wrap sh-split">
-          <div>
-            <h2>What we build with</h2>
+          <div data-reveal>
+            <h2>What we <span className="sh-accent">build</span> with</h2>
             <p className="sh-sub sh-sub--wide">Proven, widely used tools, so your software is easy to host and easy to hand over.</p>
           </div>
-          <ul className="sh-stack">{STACK.map(s => <li key={s}>{s}</li>)}</ul>
+          <ul className="sh-stack" data-reveal style={{ '--d': 1 }}>{STACK.map(s => <li key={s}>{s}</li>)}</ul>
         </div>
       </section>
 
       <section className="sh-section sh-section--tight">
-        <div className="sh-wrap sh-facts">
+        <div className="sh-wrap sh-facts" data-reveal>
           <div><span>Registered as</span><p>SHAROME, sole proprietorship</p></div>
           <div><span>Registration</span><p>MSME (Udyam), Government of India</p></div>
           <div><span>Based in</span><p>Haryana, India</p></div>

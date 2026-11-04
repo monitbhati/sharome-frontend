@@ -1,4 +1,4 @@
-// All copy for the SHAROME studio site lives here, so text changes never touch layout code.
+// All copy for the SHAROME site lives here, so text changes never touch layout code.
 
 export const CONTACT_EMAIL = 'contact@sharome.in'
 export const LOCATION = 'Jhajjar, Haryana, India'
@@ -130,14 +130,14 @@ export const WORK = [
     link: { to: '/unlock', label: 'Enter with invite code' },
   },
   {
-    id: 'reelity-check',
-    kind: 'Reelity Check',
+    id: 'dayopsy',
+    kind: 'Dayopsy',
     client: 'Android app · our own product · coming soon on Google Play',
-    summary: 'Counts the reels and shorts you scroll on Instagram, YouTube and Snapchat, with daily stats, history and share cards.',
-    problem: 'People underestimate how many short videos they scroll each day, and screen-time apps only show minutes.',
-    built: 'A Kotlin and Jetpack Compose app that detects each new reel, stores counts on the device, and adds daily history, notifications, share cards, an optional friends leaderboard and a Premium upgrade.',
-    outcome: 'Being prepared for release on Google Play under the SHAROME developer account.',
-    tags: ['Kotlin', 'Jetpack Compose', 'Room', 'Firebase'],
+    summary: 'A calm digital wellbeing app: today’s screen time, every Reel, Short and Spotlight counted, and gentle limits if you want them.',
+    problem: 'People underestimate how much of their day goes into short videos, and most screen-time apps either only show minutes or simply block apps.',
+    built: 'A Kotlin and Jetpack Compose app that shows screen time for every app, counts short videos in Instagram, YouTube and Snapchat on the device, and adds daily limits, focus sessions, a home screen widget, monthly Wrapped and a one-time Premium upgrade.',
+    outcome: 'In testing on Google Play under the SHAROME developer account.',
+    tags: ['Kotlin', 'Jetpack Compose', 'Room', 'Play Billing'],
     featured: true,
     link: { to: '/privacy-policy', label: 'Privacy policy' },
   },

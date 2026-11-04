@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { usePageTitle } from './usePageTitle'
-import { PageHero, CtaBand } from './SiteLayout'
+import { Arrow, PageHero, CtaBand } from './SiteLayout'
 
 const FLOW = [
   { title: 'Vendor link', body: 'Each sample vendor gets its own entry link for the project.' },
@@ -41,22 +41,22 @@ export default function SurveyToolsPage() {
     <>
       <PageHero
         eyebrow="For market research agencies"
-        title="A fieldwork tool your agency controls."
+        title="A fieldwork tool your agency *controls.*"
         lead="Vendor links, fraud checks, live quotas and vendor reports in one place, built around how your ops team already works and hosted under your name."
       >
         <div className="sh-actions">
-          <Link to="/contact?topic=survey-tools" className="sh-btn">Book a workflow call</Link>
+          <Link to="/contact?topic=survey-tools" className="sh-btn">Book a workflow call <Arrow /></Link>
           <a href="#how" className="sh-btn sh-btn--ghost">How it works</a>
         </div>
       </PageHero>
 
       <section id="how" className="sh-section">
         <div className="sh-wrap">
-          <h2>How a respondent moves through the tool</h2>
-          <p className="sh-sub">Every respondent is tracked from the vendor’s link to their final status.</p>
+          <h2 data-reveal>How a respondent moves through the <span className="sh-accent">tool</span></h2>
+          <p className="sh-sub" data-reveal>Every respondent is tracked from the vendor’s link to their final status.</p>
           <ol className="sh-flow">
             {FLOW.map((f, i) => (
-              <li key={f.title}>
+              <li key={f.title} data-reveal style={{ '--d': i }}>
                 <span className="sh-flow-dot">{i + 1}</span>
                 <h3>{f.title}</h3>
                 <p>{f.body}</p>
@@ -68,8 +68,8 @@ export default function SurveyToolsPage() {
 
       <section className="sh-section sh-section--tint">
         <div className="sh-wrap sh-split">
-          <div>
-            <h2>See fieldwork while it happens</h2>
+          <div data-reveal>
+            <h2>See fieldwork while it <span className="sh-accent">happens</span></h2>
             <p className="sh-sub sh-sub--wide">
               Project managers stop asking vendors for counts. Quota cells fill in live, and closed
               cells send new respondents to the quota-full link automatically.
@@ -80,7 +80,7 @@ export default function SurveyToolsPage() {
               <li>Export to Excel for the client at any point</li>
             </ul>
           </div>
-          <figure className="sh-quota" aria-label="Example quota cells">
+          <figure className="sh-quota" aria-label="Example quota cells" data-reveal style={{ '--d': 1 }}>
             <figcaption>Example · Project 2611 · quota cells</figcaption>
             {QUOTAS.map(([label, n, target]) => (
               <div className="sh-quota-row" key={label}>
@@ -89,7 +89,7 @@ export default function SurveyToolsPage() {
                   <span className="sh-num">{n} / {target}{n >= target ? ' · closed' : ''}</span>
                 </div>
                 <div className={`sh-quota-bar${n >= target ? ' is-full' : ''}`}>
-                  <div style={{ width: `${Math.min(100, (n / target) * 100)}%` }} />
+                  <div style={{ '--w': `${Math.min(100, (n / target) * 100)}%` }} />
                 </div>
               </div>
             ))}
@@ -99,11 +99,11 @@ export default function SurveyToolsPage() {
 
       <section className="sh-section">
         <div className="sh-wrap">
-          <h2>What the tool can include</h2>
-          <p className="sh-sub">Pick the modules your team needs. We leave out what you will not use.</p>
+          <h2 data-reveal>What the tool can <span className="sh-accent">include</span></h2>
+          <p className="sh-sub" data-reveal>Pick the modules your team needs. We leave out what you will not use.</p>
           <div className="sh-tiles">
-            {MODULES.map(m => (
-              <div key={m.title} className="sh-tile sh-tile--static">
+            {MODULES.map((m, i) => (
+              <div key={m.title} className="sh-tile sh-tile--static sh-spot" data-reveal style={{ '--d': i % 3 }}>
                 <h3>{m.title}</h3>
                 <p>{m.body}</p>
               </div>
@@ -114,15 +114,15 @@ export default function SurveyToolsPage() {
 
       <section className="sh-section sh-section--tint">
         <div className="sh-wrap sh-split sh-split--top">
-          <div>
-            <h2>Already in use</h2>
+          <div data-reveal>
+            <h2>Already in <span className="sh-accent">use</span></h2>
             <p className="sh-sub sh-sub--wide">
               Two market research agencies in India run their own copies of a tool we rebuilt for them,
               each on its own subdomain and hosting, instead of renting one from an outside provider.
             </p>
-            <Link to="/work#survey-tool" className="sh-link">Read the case study →</Link>
+            <Link to="/work#survey-tool" className="sh-link">Read the case study <Arrow /></Link>
           </div>
-          <div className="sh-faq">
+          <div className="sh-faq" data-reveal style={{ '--d': 1 }}>
             <h2>Questions agencies ask</h2>
             {FAQ.map(f => (
               <details key={f.q}>

@@ -24,7 +24,7 @@ function Protected({ children }) {
 function App() {
   return (
     <Routes>
-      {/* Public — SHAROME studio site (shared header and footer) */}
+      {/* Public — SHAROME site (shared header and footer) */}
       <Route element={<SiteLayout />}>
         <Route path="/"               element={<StudioHome />} />
         <Route path="/work"           element={<WorkPage />} />

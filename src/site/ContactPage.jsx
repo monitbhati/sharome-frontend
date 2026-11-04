@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { usePageTitle } from './usePageTitle'
-import { PageHero } from './SiteLayout'
+import { Arrow, PageHero } from './SiteLayout'
 import { CONTACT_EMAIL, LOCATION, SERVICES } from './data'
 
 const BUDGETS = ['Not sure yet', 'Under $1,000', '$1,000 – $3,000', '$3,000 – $8,000', 'Over $8,000']
@@ -31,13 +31,13 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Tell us about your project."
+        title="Tell us about your *project.*"
         lead="A few lines are enough. We reply with a time for a short call, then send a written quote."
       />
 
       <section className="sh-section">
         <div className="sh-wrap sh-contact-page">
-          <form className="sh-form" onSubmit={submit}>
+          <form className="sh-form" onSubmit={submit} data-reveal>
             <div className="sh-form-row">
               <label>Your name<input required value={form.name} onChange={set('name')} autoComplete="name" /></label>
               <label>Email<input required type="email" value={form.email} onChange={set('email')} autoComplete="email" /></label>
@@ -58,7 +58,7 @@ export default function ContactPage() {
               </label>
             </div>
             <label>About the project<textarea required rows={6} value={form.message} onChange={set('message')} placeholder="What your team does today, what is getting in the way, and when you would like it done." /></label>
-            <button type="submit" className="sh-btn">Send enquiry</button>
+            <button type="submit" className="sh-btn">Send enquiry <Arrow /></button>
             <p className="sh-form-note" role="status">
               {opened
                 ? <>Your email app should open with the details filled in. If it did not, write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</>
@@ -66,7 +66,7 @@ export default function ContactPage() {
             </p>
           </form>
 
-          <aside className="sh-contact-side">
+          <aside className="sh-contact-side" data-reveal style={{ '--d': 2 }}>
             <div><span>Email</span><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></div>
             <div><span>Based in</span><p>{LOCATION}</p></div>
             <div><span>Call hours</span><p>We take calls in UK, European and US working hours.</p></div>
