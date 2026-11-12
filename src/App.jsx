@@ -5,6 +5,7 @@ import VisionPage from './pages/VisionPage'
 import AtelierPage from './pages/AtelierPage'
 import LedgerPage from './pages/LedgerPage'
 import PrivacyPage from './pages/PrivacyPage'
+import GamesPrivacyPage from './pages/GamesPrivacyPage'
 import SiteLayout from './site/SiteLayout'
 import StudioHome from './site/StudioHome'
 import WorkPage from './site/WorkPage'
@@ -33,6 +34,7 @@ function App() {
         <Route path="/about"          element={<AboutPage />} />
         <Route path="/contact"        element={<ContactPage />} />
         <Route path="/privacy-policy" element={<PrivacyPage />} />
+        <Route path="/games/privacy"  element={<GamesPrivacyPage />} />
       </Route>
       <Route path="/unlock"         element={<UnlockPage />}   />
 
